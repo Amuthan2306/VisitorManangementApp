@@ -6,6 +6,9 @@ import InitialScreen from '../Screens/InitialScreen';
 import LoginScreen from '../Screens/LoginScreen';
 import Register from '../Screens/Register';
 import Mainscreen from '../Screens/Mainscreen';
+import ForgotPassword from '../Screens/Forgot/ForgotPassword';
+import VerifyCode from '../Screens/Forgot/VerifyCode';
+import NewPassword from '../Screens/Forgot/NewPassword';
 const Stack = createNativeStackNavigator();
 
 function NavigationComponents() {
@@ -16,6 +19,9 @@ function NavigationComponents() {
         <Stack.Screen name="Mainscreen" component={Mainscreen} />
         <Stack.Screen name="Register" component={Register} />
         <Stack.Screen name="LoginScreen" component={LoginScreen} />
+        <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
+        <Stack.Screen name="VerifyCode" component={VerifyCode} />
+        <Stack.Screen name="NewPassword" component={NewPassword} />
       </Stack.Navigator>
     </NavigationContainer>
   );
