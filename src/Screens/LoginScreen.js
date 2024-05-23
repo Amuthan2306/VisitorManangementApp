@@ -19,7 +19,7 @@ export default function LoginScreen() {
   const navigation = useNavigation();
 
   const handleLogin = () => {
-    // Implement your login logic here
+    navigation.navigate('HomeScreen')
   };
 
   return (
@@ -78,7 +78,7 @@ export default function LoginScreen() {
           </TouchableOpacity>
           <View style={styles.registerContainer}>
             <Text style={styles.registerText}>Don't have an account?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('HomeScreen')}>
+            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
               <Text style={styles.registerLink}>Register</Text>
             </TouchableOpacity>
           </View>

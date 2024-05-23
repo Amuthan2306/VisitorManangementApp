@@ -74,7 +74,7 @@ export default function VerifyCode() {
           name="arrow-back-ios-new"
           size={30}
           color={'#000'}
-          style={{marginTop: 20, marginLeft: 10}}
+          style={{marginTop: 20,}}
         />
       </TouchableOpacity>
       <Text style={styles.forgot}>Enter Verification Code</Text>
@@ -109,7 +109,7 @@ export default function VerifyCode() {
           marginTop:10
 
 
-          
+
         }}>
         Resent it 00:{count}
       </Text>

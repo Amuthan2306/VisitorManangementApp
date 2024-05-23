@@ -11,6 +11,7 @@ import {
   Alert,
   StatusBar,
   ScrollView,
+  SafeAreaView
 } from 'react-native';
 import Lottie from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -260,6 +261,7 @@ const HomeScreen = props => {
     setOpencalendar(!openCalendar);
   };
   return (
+    <SafeAreaView>
     <ScrollView style={{backgroundColor: '#fff'}}>
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
       {/* {spin ? <Spinner /> : null} */}
@@ -760,6 +762,7 @@ const HomeScreen = props => {
         </View>
       )}
     </ScrollView>
+    </SafeAreaView>
   );
 };
 

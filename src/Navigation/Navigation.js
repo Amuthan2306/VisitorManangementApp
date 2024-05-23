@@ -11,7 +11,7 @@ import {
   Dimensions,
   Modal,
   PermissionsAndroid,
-  Alert
+  Alert,
 } from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -27,6 +27,13 @@ import DocumentPicker from 'react-native-document-picker';
 import LinearGradient from 'react-native-linear-gradient';
 import RNFS from 'react-native-fs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import QRScanner from '../Screens/QRScanner';
+import VisitorRegisterScreen from '../Screens/VisitorRegisterScreen';
+import AttachFile from '../Screens/AttachFile';
+import UploadCamera from '../Screens/UploadCamera';
+import VisitorDetailsScreen from '../Screens/VisitorDetailsScreen';
+import ViewerScreen from '../Screens/ViewerScreen';
+import VisitorNumber from '../Screens/VisitorNumber';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -96,7 +103,7 @@ const DrawerContents = props => {
     },
     {
       id: '8',
-      title:'Role And Permission Management',
+      title: 'Role And Permission Management',
     },
     {
       id: '9',
@@ -242,7 +249,12 @@ const DrawerContents = props => {
 
   return (
     <View
-      style={{flex: 1, justifyContent: 'center', alignItems: 'center',backgroundColor:'#3085fe'}}>
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#3085fe',
+      }}>
       <View style={{alignItems: 'center', justifyContent: 'center'}}>
         <TouchableOpacity onPress={() => openFilePicker()}>
           <Image
@@ -291,7 +303,8 @@ const DrawerContents = props => {
                 height: 5,
                 borderRadius: 5 / 2,
                 backgroundColor: '#fff',
-              }}></View>
+              }}
+            />
             <TouchableOpacity
               onPress={() =>
                 demo == 'Admin'
@@ -331,8 +344,7 @@ const DrawerContents = props => {
               Are you sure you want to logout?
             </Text>
             <View style={{flexDirection: 'row'}}>
-              <View
-                style={styles.subbutton}>
+              <View style={styles.subbutton}>
                 <TouchableOpacity
                   onPress={() => {
                     navigation.navigate('Mainscreen');
@@ -341,8 +353,7 @@ const DrawerContents = props => {
                   <Text style={styles.subtext}>Yes</Text>
                 </TouchableOpacity>
               </View>
-              <View
-                style={styles.subbutton}>
+              <View style={styles.subbutton}>
                 <TouchableOpacity
                   onPress={() => {
                     setModalVisible(!modalVisible);
@@ -399,6 +410,19 @@ function NavigationComponents() {
         <Stack.Screen name="VerifyCode" component={VerifyCode} />
         <Stack.Screen name="NewPassword" component={NewPassword} />
         <Stack.Screen name="HomeScreen" component={MyDrawer} />
+        <Stack.Screen name="QRScanner" component={QRScanner} />
+        <Stack.Screen name="AttachFile" component={AttachFile} />
+        <Stack.Screen name="UploadCamera" component={UploadCamera} />
+        <Stack.Screen name="ViewerScreen" component={ViewerScreen} />
+        <Stack.Screen name="VisitorNumber" component={VisitorNumber} />
+        <Stack.Screen
+          name="VisitorRegisterScreen"
+          component={VisitorRegisterScreen}
+        />
+        <Stack.Screen
+          name="VisitorDetailsScreen"
+          component={VisitorDetailsScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -475,7 +499,7 @@ const styles = StyleSheet.create({
     height: 45,
     width: '40%',
     borderRadius: 10,
-    backgroundColor:'#3085fe',
+    backgroundColor: '#3085fe',
     alignItems: 'center',
     justifyContent: 'center',
     margin: 10,
