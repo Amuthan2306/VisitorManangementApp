@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {
   StyleSheet,
   Text,
@@ -10,10 +10,23 @@ import {
   Animated,
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MainScreen() {
   const navigation = useNavigation();
+  const onClickBuildingAdmin = () => {
+    AsyncStorage.setItem('@MySuperStore:key', 'Admin');
+    navigation.navigate('LoginScreen');
+  };
+  const onClickSuperAdmin = () => {
+    AsyncStorage.setItem('@MySuperStore:key', 'SuperAdmin');
+    navigation.navigate('LoginScreen');
+  };
 
+  const onClickSecurity = () => {
+    AsyncStorage.setItem('@MySuperStore:key', 'Security');
+    navigation.navigate('LoginScreen');
+  };
   const DATA = [
     {
       id: '1',
@@ -48,7 +61,17 @@ export default function MainScreen() {
   }, []);
   const renderItem = ({item}) => (
     <TouchableOpacity
-      onPress={() => navigation.navigate('LoginScreen')}
+      onPress={() => {
+        item.id == '1'
+          ? onClickBuildingAdmin()
+          : item.id == '2'
+          ? onClickSuperAdmin()
+          : item.id == '3'
+          ? navigation.navigate('QRScanner')
+          : item.id == '4'
+          ? onClickSecurity()
+          : null;
+      }}
       style={styles.itemContainer}>
       <Image source={item.image} style={styles.itemImage} />
       <Text style={styles.itemTitle}>{item.title}</Text>
