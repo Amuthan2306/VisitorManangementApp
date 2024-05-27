@@ -32,121 +32,129 @@ export default function VisitorNumber() {
     <SafeAreaView style={styles.container}>
       {/* {spin ? <Spinner /> : null} */}
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
-      <View
-        style={{
-          flex: 1,
-          backgroundColor: '#fff',
-          borderWidth: 15,
-          borderColor: '#3085fe',
-        }}>
+      <View style={{backgroundColor: '#3085fe', flex: 1}}>
         <View
           style={{
-            borderBottomWidth: 1,
-            width: '90%',
-            alignSelf: 'center',
-            marginTop: 10,
-        borderColor:'#3085fe'
-          }}
-        />
-        <View
-          style={{
-            borderBottomWidth: 1,
-            width: '90%',
-            alignSelf: 'center',
-            marginTop: 5,
-            borderColor:'#3085fe'
-          }}
-        />
-        <Text
-          style={{
-            fontSize: 40,
-            fontWeight: 'bold',
-            color: '#000',
-            textAlign: 'center',
+            flex: 1,
+            backgroundColor: '#fff',
+            borderRadius: 30,
+            borderWidth: 15,
+            borderColor: '#3085fe',
           }}>
-          Visitor Pass
-        </Text>
-        <View
-          style={{
-            borderBottomWidth: 1,
-            width: '90%',
-            alignSelf: 'center',
-            marginTop: 10,
-            borderColor:'#3085fe'
-          }}
-        />
-        <View
-          style={{
-            borderBottomWidth: 1,
-            width: '90%',
-            alignSelf: 'center',
-            marginTop: 5,
-             borderColor:'#3085fe'
-          }}
-        />
-        <Image
-          source={require('../Assets/loginimg.png')}
-          style={{marginTop: 50, height: 150, width: 150, alignSelf: 'center'}}
-        />
-        <View
-          style={{
-            height: 250,
-            flexDirection: 'row',
-            width: '100%',
-            // borderWidth: 1,
-            alignSelf: 'center',
-            justifyContent: 'space-around',
-          }}>
-          <View style={{width: '47%', alignSelf: 'center', borderWidth: 0}}>
-            <Text style={styles.nametext}>Name</Text>
-            <Text style={styles.nametext}>Civil ID</Text>
-            <Text style={styles.nametext}>Purpose Of Visit</Text>
-            <Text style={styles.nametext}>Person To Meet</Text>
-            <Text style={styles.nametext}>In Time</Text>
-          </View>
           <View
             style={{
-              width: '5%',
+              borderBottomWidth: 1,
+              width: '90%',
               alignSelf: 'center',
-              alignItems: 'center',
-              borderWidth: 0,
-            }}>
-            <Text style={styles.nametext}>:</Text>
-            <Text style={styles.nametext}>:</Text>
-            <Text style={styles.nametext}>:</Text>
-            <Text style={styles.nametext}>:</Text>
-            <Text style={styles.nametext}>:</Text>
-          </View>
-          <View style={{width: '47%', alignSelf: 'center', borderWidth: 0}}>
-            <Text style={styles.nametext1}>Mohammed</Text>
-            <Text style={styles.nametext1}>7845123697</Text>
-            <Text style={styles.nametext1}>Meeting</Text>
-            <Text style={styles.nametext1}>Aathif</Text>
-            <Text style={styles.nametext1}>07:30</Text>
-          </View>
-        </View>
-        <TouchableOpacity onPress={() => setModal(!modal)}
-          style={{
-            height: 40,
-            width: '90%',
-            marginTop:150,
-            alignSelf: 'center',
-            justifyContent: 'center',
-            backgroundColor: '#3085fe',
-            borderRadius: 10,
-          }}>
+              marginTop: 10,
+              borderColor: '#3085fe',
+            }}
+          />
+          <View
+            style={{
+              borderBottomWidth: 1,
+              width: '90%',
+              alignSelf: 'center',
+              marginTop: 5,
+              borderColor: '#3085fe',
+            }}
+          />
           <Text
             style={{
-              fontSize: 16,
-              fontWeight: '500',
-              color: '#fff',
+              fontSize: 40,
+              fontWeight: 'bold',
+              color: '#000',
               textAlign: 'center',
             }}>
-            Save Record
+            Visitor Pass
           </Text>
-        </TouchableOpacity>
+          <View
+            style={{
+              borderBottomWidth: 1,
+              width: '90%',
+              alignSelf: 'center',
+              marginTop: 10,
+              borderColor: '#3085fe',
+            }}
+          />
+          <View
+            style={{
+              borderBottomWidth: 1,
+              width: '90%',
+              alignSelf: 'center',
+              marginTop: 5,
+              borderColor: '#3085fe',
+            }}
+          />
+          <Image
+            source={require('../Assets/loginimg.png')}
+            style={{
+              marginTop: 50,
+              height: 120,
+              width: 120,
+              alignSelf: 'center',
+            }}
+          />
+          <View
+            style={{
+              height: 250,
+              flexDirection: 'row',
+              width: '100%',
+              // borderWidth: 1,
+              alignSelf: 'center',
+              justifyContent: 'space-around',
+            }}>
+            <View style={{width: '47%', alignSelf: 'center', borderWidth: 0}}>
+              <Text style={styles.nametext}>Name</Text>
+              <Text style={styles.nametext}>Civil ID</Text>
+              <Text style={styles.nametext}>Purpose Of Visit</Text>
+              <Text style={styles.nametext}>Person To Meet</Text>
+              <Text style={styles.nametext}>In Time</Text>
+            </View>
+            <View
+              style={{
+                width: '5%',
+                alignSelf: 'center',
+                alignItems: 'center',
+                borderWidth: 0,
+              }}>
+              <Text style={styles.nametext}>:</Text>
+              <Text style={styles.nametext}>:</Text>
+              <Text style={styles.nametext}>:</Text>
+              <Text style={styles.nametext}>:</Text>
+              <Text style={styles.nametext}>:</Text>
+            </View>
+            <View style={{width: '47%', alignSelf: 'center', borderWidth: 0}}>
+              <Text style={styles.nametext1}>Mohammed</Text>
+              <Text style={styles.nametext1}>7845123697</Text>
+              <Text style={styles.nametext1}>Meeting</Text>
+              <Text style={styles.nametext1}>Aathif</Text>
+              <Text style={styles.nametext1}>07:30</Text>
+            </View>
+          </View>
+          <TouchableOpacity
+            onPress={() => setModal(!modal)}
+            style={{
+              height: 40,
+              width: '90%',
+              marginTop: 150,
+              alignSelf: 'center',
+              justifyContent: 'center',
+              backgroundColor: '#3085fe',
+              borderRadius: 10,
+            }}>
+            <Text
+              style={{
+                fontSize: 16,
+                fontWeight: '500',
+                color: '#fff',
+                textAlign: 'center',
+              }}>
+              Save Record
+            </Text>
+          </TouchableOpacity>
+        </View>
       </View>
-
       <Modal
         animationType="slide"
         transparent={true}
@@ -227,7 +235,7 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    borderWidth:0.5,
+    borderWidth: 0.5,
     backgroundColor: 'white',
     height: (Height / 25) * 8,
     width: (Width / 10) * 8,

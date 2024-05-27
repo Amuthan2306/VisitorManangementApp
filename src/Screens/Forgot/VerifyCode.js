@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import {useNavigation} from '@react-navigation/native';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
 export default function VerifyCode() {
   const navigation = useNavigation();
@@ -68,55 +69,57 @@ export default function VerifyCode() {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Icon
-          name="arrow-back-ios-new"
-          size={30}
-          color={'#000'}
-          style={{marginTop: 20,}}
-        />
-      </TouchableOpacity>
-      <Text style={styles.forgot}>Enter Verification Code</Text>
-      <Text style={styles.text}>
-        We have sent the verification code to your mobile {'\n'}number
-      </Text>
-      <Image source={require('../../Assets/verify.jpg')} style={styles.logo} />
-      <View style={styles.otpContainer}>
-        {code.map((value, index) => (
-          <TextInput
-            key={index}
-            ref={inputRefs[index]}
-            style={styles.input}
-            value={value}
-            onChangeText={text => handleInputChange(index, text)}
-            onKeyPress={({nativeEvent}) => {
-              if (nativeEvent.key === 'Backspace') {
-                handleBackspace(index);
-              }
-            }}
-            keyboardType="numeric"
-            maxLength={1}
+    <KeyboardAwareScrollView style={{backgroundColor:'#fff'}}>
+      <SafeAreaView style={styles.container}>
+        <TouchableOpacity onPress={() => navigation.goBack()}>
+          <Icon
+            name="arrow-back-ios-new"
+            size={30}
+            color={'#000'}
+            style={{marginTop: 20}}
           />
-        ))}
-      </View>
-      <Text
-        style={{
-          fontSize: 15,
-          fontWeight: '500',
-          color: '#000',
-          textAlign: 'right',
-          marginTop:10
-
-
-
-        }}>
-        Resent it 00:{count}
-      </Text>
-      <TouchableOpacity onPress={handleVerify} style={styles.verifyButton}>
-        <Text style={styles.verifyButtonText}>Verify</Text>
-      </TouchableOpacity>
-    </SafeAreaView>
+        </TouchableOpacity>
+        <Text style={styles.forgot}>Enter Verification Code</Text>
+        <Text style={styles.text}>
+          We have sent the verification code to your mobile {'\n'}number
+        </Text>
+        <Image
+          source={require('../../Assets/verify.jpg')}
+          style={styles.logo}
+        />
+        <View style={styles.otpContainer}>
+          {code.map((value, index) => (
+            <TextInput
+              key={index}
+              ref={inputRefs[index]}
+              style={styles.input}
+              value={value}
+              onChangeText={text => handleInputChange(index, text)}
+              onKeyPress={({nativeEvent}) => {
+                if (nativeEvent.key === 'Backspace') {
+                  handleBackspace(index);
+                }
+              }}
+              keyboardType="numeric"
+              maxLength={1}
+            />
+          ))}
+        </View>
+        <Text
+          style={{
+            fontSize: 15,
+            fontWeight: '500',
+            color: '#000',
+            textAlign: 'right',
+            marginTop: 10,
+          }}>
+          Resent it 00:{count}
+        </Text>
+        <TouchableOpacity onPress={handleVerify} style={styles.verifyButton}>
+          <Text style={styles.verifyButtonText}>Verify</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 }
 

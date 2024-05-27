@@ -34,6 +34,8 @@ import UploadCamera from '../Screens/UploadCamera';
 import VisitorDetailsScreen from '../Screens/VisitorDetailsScreen';
 import ViewerScreen from '../Screens/ViewerScreen';
 import VisitorNumber from '../Screens/VisitorNumber';
+import EditProfile from '../Screens/EditProfile'
+import ViewReport from '../Screens/ViewReport';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -415,6 +417,8 @@ function NavigationComponents() {
         <Stack.Screen name="UploadCamera" component={UploadCamera} />
         <Stack.Screen name="ViewerScreen" component={ViewerScreen} />
         <Stack.Screen name="VisitorNumber" component={VisitorNumber} />
+        <Stack.Screen name="EditProfile" component={EditProfile} />
+        <Stack.Screen name="ViewReport" component={ViewReport} />
         <Stack.Screen
           name="VisitorRegisterScreen"
           component={VisitorRegisterScreen}

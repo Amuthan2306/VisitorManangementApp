@@ -31,6 +31,7 @@ export default function VisitorDetailsScreen() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [dialcode, Setdialcode] = useState('');
   const [date, setdate] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     display();
@@ -73,6 +74,14 @@ export default function VisitorDetailsScreen() {
             placeholder={'Name'}
             editable={false}
           />
+          <Text style={styles.text}>Email</Text>
+            <TextInput
+              placeholder={"Email"}
+              value={email}
+              style={styles.input}
+              onChangeText={text => setEmail(text)}
+              editable={false}
+            />
          
           <Text style={styles.text}>Civil ID</Text>
           <TextInput
@@ -80,6 +89,7 @@ export default function VisitorDetailsScreen() {
             onChangeText={text => setcivilid(text)}
             value={names?.civilid}
             placeholder={'Civil ID'}
+            editable={false}
           />
           <Text style={styles.text}>Purpose Of Visit</Text>
           <TextInput
@@ -87,6 +97,7 @@ export default function VisitorDetailsScreen() {
             onChangeText={text => setvisit(text)}
             value={names?.visit}
             placeholder={'Purpose Of Visit'}
+            editable={false}
           />
           <Text style={styles.text}>Person To Meet</Text>
           <TextInput
@@ -94,6 +105,7 @@ export default function VisitorDetailsScreen() {
             onChangeText={text => setmeet(text)}
             value={names?.meet}
             placeholder={'Person To Meet'}
+            editable={false}
           />
           <Text style={styles.text}>Company Name</Text>
           <TextInput
@@ -101,6 +113,7 @@ export default function VisitorDetailsScreen() {
             onChangeText={text => setcompany(text)}
             value={names?.comapny}
             placeholder={'Company Name'}
+            editable={false}
           />
           <Text style={styles.text}>In Time</Text>
           <TextInput
@@ -108,6 +121,7 @@ export default function VisitorDetailsScreen() {
             onChangeText={text => setintime(text)}
             value={names?.intime}
             placeholder={'In Time'}
+            editable={false}
           />
           {/* <Text style={styles.text}>Visited Date</Text>
           <TextInput

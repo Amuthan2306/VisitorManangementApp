@@ -6,7 +6,7 @@ import {
   StyleSheet,
   Dimensions,
   StatusBar,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
 import {useNavigation} from '@react-navigation/native';
@@ -16,9 +16,9 @@ const InitialScreen = () => {
 
   useEffect(() => {
     SplashScreen.hide();
-    setTimeout(() => {
-      navigation.navigate('Mainscreen');
-    }, 1000);
+    // setTimeout(() => {
+    navigation.navigate('Mainscreen');
+    // }, 1000);
   }, []);
   return (
     <SafeAreaView style={styles.container}>
@@ -35,8 +35,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   logo: {
-    height:'100%',
-    width:'100%',
+    height: '100%',
+    width: '100%',
   },
 });
 export default InitialScreen;

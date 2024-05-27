@@ -11,7 +11,7 @@ import {
   Alert,
   StatusBar,
   ScrollView,
-  SafeAreaView
+  SafeAreaView,
 } from 'react-native';
 import Lottie from 'lottie-react-native';
 import LinearGradient from 'react-native-linear-gradient';
@@ -262,59 +262,53 @@ const HomeScreen = props => {
   };
   return (
     <SafeAreaView>
-    <ScrollView style={{backgroundColor: '#fff'}}>
-      <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
-      {/* {spin ? <Spinner /> : null} */}
-      <View
-        style={{
-          alignItems: 'center',
-          flexDirection: 'row',
-          width: '100%',
-          backgroundColor: '#3085fe',
-          justifyContent: 'space-around',
-          height: 70,
-        }}>
-        <TouchableOpacity style={{}} onPress={() => navigation.openDrawer()}>
-          <Image
-            source={require('../Assets/menu.png')}
-            style={{height: 30, width: 30}}
-          />
-        </TouchableOpacity>
-        <Text style={styles.titleText}>Visitor's Management</Text>
-        <TouchableOpacity
-          onPress={() => null}>
-          <Ionicon
-            name="notifications-outline"
-            size={25}
-            color={'#fff'}
-            style={{fontWeight: '900'}}
-          />
-        </TouchableOpacity>
-      </View>
-      {demo === 'Admin' ? (
+      <ScrollView style={{backgroundColor: '#fff'}}>
+        <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
+        {/* {spin ? <Spinner /> : null} */}
         <View
           style={{
-            width: '94%',
-            alignSelf: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+            width: '100%',
+            backgroundColor: '#3085fe',
+            justifyContent: 'space-around',
+            height: 70,
           }}>
+          <TouchableOpacity style={{}} onPress={() => navigation.openDrawer()}>
+            <Image
+              source={require('../Assets/menu.png')}
+              style={{height: 30, width: 30}}
+            />
+          </TouchableOpacity>
+          <Text style={styles.titleText}>Visitor's Management</Text>
+          <TouchableOpacity onPress={() => null}>
+            <Ionicon
+              name="notifications-outline"
+              size={25}
+              color={'#fff'}
+              style={{fontWeight: '900'}}
+            />
+          </TouchableOpacity>
+        </View>
+        {demo === 'Admin' ? (
           <View
             style={{
-              width: '100%',
+              width: '94%',
               alignSelf: 'center',
-              marginVertical: 10,
-            //   borderWidth:1
             }}>
             <View
               style={{
-                // flexDirection: 'row',
-                // justifyContent: 'space-between',
-                padding: 6,
+                width: '100%',
+                alignSelf: 'center',
+                marginVertical: 10,
+                // borderWidth:1
               }}>
               <View
                 style={{
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                //   margin: 10,
+                  // borderWidth: 1,
+                  marginTop: 10,
                 }}>
                 <View style={styles.numofvisit}>
                   <Text style={styles.numtext}>
@@ -331,12 +325,17 @@ const HomeScreen = props => {
                 style={{
                   flexDirection: 'row',
                   justifyContent: 'space-between',
-                  marginTop:25
-                //   margin: 10,
+                  marginTop: 25,
+                  // borderWidth:1,
+                  marginTop: 15,
+                  //   margin: 10,
                 }}>
                 <View style={styles.numofvisit4}>
                   <Text style={styles.numtext}>Waiting Visitors</Text>
-                  <Text style={[styles.numtext2, {color: 'rgba(48, 190, 182, 1)'}]}>6</Text>
+                  <Text
+                    style={[styles.numtext2, {color: 'rgba(48, 190, 182, 1)'}]}>
+                    6
+                  </Text>
                 </View>
                 <View style={styles.numofvisit3}>
                   <Text style={styles.numtext}>In Active Visitors</Text>
@@ -344,179 +343,275 @@ const HomeScreen = props => {
                 </View>
               </View>
             </View>
-          </View>
-          <View
-            style={{
-              width: '100%',
-              height: 50,
-              flexDirection: 'row',
-              alignItems: 'center',
-              justifyContent: 'center',
-              marginBottom: 15,
-              borderRadius: 10,
-              backgroundColor: '#fff',
-            }}>
-            <TouchableOpacity
-              onPress={() => onClickDay()}
-              style={[
-                styles.rowStyle,
-                {
-                  backgroundColor: day ? '#3085fe' : '#fff',
-                },
-              ]}>
-              <Text style={[styles.days, {color: day ? '#fff' : '#000'}]}>
-                Day
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => onClickWeek()}
-              style={[
-                styles.rowStyle,
-                {
-                  backgroundColor: week ? '#3085fe' : '#fff',
-                },
-              ]}>
-              <Text style={[styles.days, {color: week ? '#fff' : '#000'}]}>
-                Week
-              </Text>
-            </TouchableOpacity>
-            <TouchableOpacity
-              onPress={() => onClickMonth()}
-              style={[
-                styles.rowStyle,
-                {
-                  backgroundColor: month ? '#3085fe' : '#fff',
-                },
-              ]}>
-              <Text style={[styles.days, {color: month ? '#fff' : '#000'}]}>
-                Month
-              </Text>
-            </TouchableOpacity>
-          </View>
-          <View style={{alignItems: 'center'}}>
-            {day ? (
-              <BarChart
-                data={dayBar}
-                width={380}
-                height={200}
-                // yAxisLabel="Year"
-                chartConfig={{
-                  backgroundGradientFrom: '#ffff',
-                  backgroundGradientTo: '#fff',
-                  fillShadowGradientFromOpacity: 1,
-                  fillShadowGradientToOpacity: 0.5,
-                  // barPercentage:5,
-                  barPercentage: 0.6,
-                  decimalPlaces: 0, // optional, defaults to 2dp
-                  color: (opacity = 1) => `rgba(48, 133, 254, ${opacity})`,
-                  labelColor: (opacity = 1) => `rgb(48, 133, 254) ${opacity})`,
-                }}
-                bezier
-                style={{
-                  // marginVertical: 8,
-                  borderRadius: 10,
-                }}
-              />
-            ) : week ? (
-              <BarChart
-                data={weekBar}
-                width={380}
-                height={200}
-                // yAxisLabel="Year"
-                chartConfig={{
-                  backgroundGradientFrom: '#ffff',
-                  backgroundGradientTo: '#fff',
-                  fillShadowGradientFromOpacity: 1,
-                  fillShadowGradientToOpacity: 0.5,
-                  barPercentage: 0.6,
-                  decimalPlaces: 0, // optional, defaults to 2dp
-                  color: (opacity = 1) => `rgba(48, 133, 254, ${opacity})`,
-                  labelColor: (opacity = 1) => `rgb(48, 133, 254) ${opacity})`,
-                }}
-                bezier
-                style={{
-                  // marginVertical: 8,
-                  borderRadius: 10,
-                }}
-                // verticalLabelRotation={10}
-              />
-            ) : month ? (
-              <BarChart
-                data={monthBar}
-                width={380}
-                height={200}
-                // yAxisLabel="Year"
-                chartConfig={{
-                  backgroundGradientFrom: '#ffff',
-                  backgroundGradientTo: '#fff',
-                  fillShadowGradientFromOpacity: 1,
-                  fillShadowGradientToOpacity: 0.5,
-                  barPercentage: 0.6,
-                  decimalPlaces: 0, // optional, defaults to 2dp
-                  color: (opacity = 1) => `rgba(48, 133, 254, ${opacity})`,
-                  labelColor: (opacity = 1) => `rgb(48, 133, 254) ${opacity})`,
-                }}
-                bezier
-                style={{
-                  // marginVertical: 8,
-                  borderRadius: 10,
-                }}
-                // verticalLabelRotation={10}
-              />
-            ) : null}
-          </View>
-          <View style={{marginTop: 12}}>
             <View
               style={{
+                width: '100%',
+                height: 50,
                 flexDirection: 'row',
-                height: 40,
                 alignItems: 'center',
                 justifyContent: 'center',
+                marginBottom: 15,
+                borderRadius: 10,
+                backgroundColor: '#fff',
               }}>
-              <Text style={styles.cardTitletext}>Visitor List</Text>
               <TouchableOpacity
-                style={{width: '10%', marginLeft: 0}}
-                onPress={() => clickOpenCalendar()}>
-                <Calender name={'calendar'} size={25} color="#000" />
+                onPress={() => onClickDay()}
+                style={[
+                  styles.rowStyle,
+                  {
+                    backgroundColor: day ? '#3085fe' : '#fff',
+                  },
+                ]}>
+                <Text style={[styles.days, {color: day ? '#fff' : '#000'}]}>
+                  Day
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => onClickWeek()}
+                style={[
+                  styles.rowStyle,
+                  {
+                    backgroundColor: week ? '#3085fe' : '#fff',
+                  },
+                ]}>
+                <Text style={[styles.days, {color: week ? '#fff' : '#000'}]}>
+                  Week
+                </Text>
+              </TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => onClickMonth()}
+                style={[
+                  styles.rowStyle,
+                  {
+                    backgroundColor: month ? '#3085fe' : '#fff',
+                  },
+                ]}>
+                <Text style={[styles.days, {color: month ? '#fff' : '#000'}]}>
+                  Month
+                </Text>
               </TouchableOpacity>
             </View>
-            {openCalendar ? (
-              <View>
-                <Calendar
-                  onDayPress={day => {
-                    setSelected(day.dateString);
+            <View style={{alignItems: 'center'}}>
+              {day ? (
+                <BarChart
+                  data={dayBar}
+                  width={380}
+                  height={200}
+                  // yAxisLabel="Year"
+                  chartConfig={{
+                    backgroundGradientFrom: '#ffff',
+                    backgroundGradientTo: '#fff',
+                    fillShadowGradientFromOpacity: 1,
+                    fillShadowGradientToOpacity: 0.5,
+                    // barPercentage:5,
+                    barPercentage: 0.6,
+                    decimalPlaces: 0, // optional, defaults to 2dp
+                    color: (opacity = 1) => `rgba(48, 133, 254, ${opacity})`,
+                    labelColor: (opacity = 1) =>
+                      `rgb(48, 133, 254) ${opacity})`,
                   }}
-                  markedDates={{
-                    [selected]: {
-                      selected: true,
-                      disableTouchEvent: true,
-                      selectedDotColor: 'orange',
-                    },
-                  }}
-                  theme={{
-                    backgroundColor: '#000',
-                    calendarBackground: '#ffffff',
-                    textSectionTitleColor: '#b6c1cd',
-                    selectedDayBackgroundColor: '#3085fe',
-                    selectedDayTextColor: '#ffffff',
-                    todayTextColor: '#fff',
-                    dayTextColor: '#2d4150',
-                    textDisabledColor: 'lightgrey',
-                    todayBackgroundColor: '#d9e',
-                    arrowColor: '#3085fe',
+                  bezier
+                  style={{
+                    // marginVertical: 8,
+                    borderRadius: 10,
                   }}
                 />
+              ) : week ? (
+                <BarChart
+                  data={weekBar}
+                  width={380}
+                  height={200}
+                  // yAxisLabel="Year"
+                  chartConfig={{
+                    backgroundGradientFrom: '#ffff',
+                    backgroundGradientTo: '#fff',
+                    fillShadowGradientFromOpacity: 1,
+                    fillShadowGradientToOpacity: 0.5,
+                    barPercentage: 0.6,
+                    decimalPlaces: 0, // optional, defaults to 2dp
+                    color: (opacity = 1) => `rgba(48, 133, 254, ${opacity})`,
+                    labelColor: (opacity = 1) =>
+                      `rgb(48, 133, 254) ${opacity})`,
+                  }}
+                  bezier
+                  style={{
+                    // marginVertical: 8,
+                    borderRadius: 10,
+                  }}
+                  // verticalLabelRotation={10}
+                />
+              ) : month ? (
+                <BarChart
+                  data={monthBar}
+                  width={380}
+                  height={200}
+                  // yAxisLabel="Year"
+                  chartConfig={{
+                    backgroundGradientFrom: '#ffff',
+                    backgroundGradientTo: '#fff',
+                    fillShadowGradientFromOpacity: 1,
+                    fillShadowGradientToOpacity: 0.5,
+                    barPercentage: 0.6,
+                    decimalPlaces: 0, // optional, defaults to 2dp
+                    color: (opacity = 1) => `rgba(48, 133, 254, ${opacity})`,
+                    labelColor: (opacity = 1) =>
+                      `rgb(48, 133, 254) ${opacity})`,
+                  }}
+                  bezier
+                  style={{
+                    // marginVertical: 8,
+                    borderRadius: 10,
+                  }}
+                  // verticalLabelRotation={10}
+                />
+              ) : null}
+            </View>
+            <View style={{marginTop: 12}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  height: 40,
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                <Text style={styles.cardTitletext}>Visitor List</Text>
+                <TouchableOpacity
+                  style={{width: '10%', marginLeft: 0}}
+                  onPress={() => clickOpenCalendar()}>
+                  <Calender name={'calendar'} size={25} color="#000" />
+                </TouchableOpacity>
               </View>
-            ) : null}
+              {openCalendar ? (
+                <View>
+                  <Calendar
+                    onDayPress={day => {
+                      setSelected(day.dateString);
+                    }}
+                    markedDates={{
+                      [selected]: {
+                        selected: true,
+                        disableTouchEvent: true,
+                        selectedDotColor: 'orange',
+                      },
+                    }}
+                    theme={{
+                      backgroundColor: '#000',
+                      calendarBackground: '#ffffff',
+                      textSectionTitleColor: '#b6c1cd',
+                      selectedDayBackgroundColor: '#3085fe',
+                      selectedDayTextColor: '#ffffff',
+                      todayTextColor: '#fff',
+                      dayTextColor: '#2d4150',
+                      textDisabledColor: 'lightgrey',
+                      todayBackgroundColor: '#d9e',
+                      arrowColor: '#3085fe',
+                    }}
+                  />
+                </View>
+              ) : null}
+              <View>
+                <View
+                  style={{
+                    borderRadius: 15,
+                    width: '100%',
+                    backgroundColor: '#3085fe',
+                    marginBottom:15
+                  }}>
+                  <FlatList
+                    data={data}
+                    renderItem={({item}) => (
+                      <View
+                        style={{
+                          backgroundColor: '#fff',
+                          borderRadius: 15,
+                          margin: 10,
+                          marginTop: 10,
+                          flexDirection: 'row',
+                          padding: 10,
+                        }}>
+                        <View style={{flex: 0.55, justifyContent: 'center'}}>
+                          <Text style={styles.textStyle}>
+                            Visitor Name : {item.visitorName}
+                          </Text>
+                          <Text style={styles.textStyle}>
+                            In-Time:{item.inTime}
+                          </Text>
+                          <Text style={styles.textStyle}>
+                            Person to Meet: {item.persontoMeet}
+                          </Text>
+                        </View>
+                        <View style={{flex: 0.25, justifyContent: 'center'}}>
+                          <View
+                            style={{
+                              flexDirection: 'row',
+                              alignItems: 'center',
+                            }}>
+                            <View
+                              style={{
+                                width: 6,
+                                height: 5,
+                                borderRadius: 5 / 2,
+                                backgroundColor: 'green',
+                                marginRight: 5,
+                              }}
+                            />
+                            <Text style={styles.textStyle}>{item.status}</Text>
+                          </View>
+                          <Text>{item.validity}</Text>
+                        </View>
+                        <View style={{flex: 0.2, justifyContent: 'center'}}>
+                          <View style={[styles.subbutton, {width: '100%'}]}>
+                            <TouchableOpacity
+                              onPress={() => {
+                                navigation.navigate('VisitorDetailsScreen');
+                              }}
+                              style={[styles.subbutton, {width: '100%'}]}>
+                              <Text style={styles.subtext}>View</Text>
+                            </TouchableOpacity>
+                          </View>
+                        </View>
+                      </View>
+                    )}
+                    keyExtractor={item => item.id}
+                  />
+                </View>
+              </View>
+            </View>
+          </View>
+        ) : demo === 'SuperAdmin' ? (
+          <ScrollView style={{width: '95%', alignSelf: 'center'}}>
+            <View
+              style={{
+                width: '100%',
+                alignSelf: 'center',
+                marginVertical: 10,
+              }}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  justifyContent: 'space-between',
+                  margin: 3,
+                }}>
+                <View style={styles.numofvisit}>
+                  <Text style={styles.numtext}>Total Subscription Count</Text>
+                  <Text style={styles.numtext2}>250</Text>
+                </View>
+                <View style={styles.numofvisit2}>
+                  <Text style={styles.numtext}>Active Subscription Count</Text>
+                  <Text style={[styles.numtext2, {color: '#A3D139'}]}>100</Text>
+                </View>
+              </View>
+            </View>
             <View>
               <View
                 style={{
                   borderRadius: 15,
                   width: '100%',
                   backgroundColor: '#3085fe',
+                  marginBottom:10
                 }}>
                 <FlatList
-                  data={data}
+                  data={superData}
                   renderItem={({item}) => (
                     <View
                       style={{
@@ -526,42 +621,31 @@ const HomeScreen = props => {
                         marginTop: 10,
                         flexDirection: 'row',
                         padding: 10,
+                        justifyContent: 'space-between',
                       }}>
-                      <View style={{flex: 0.55, justifyContent: 'center'}}>
+                      <View style={{justifyContent: 'center'}}>
+                        <Text style={styles.textStyle}>Name : {item.Name}</Text>
                         <Text style={styles.textStyle}>
-                          Visitor Name : {item.visitorName}
+                          Valid Upto : {item.validity}
                         </Text>
                         <Text style={styles.textStyle}>
-                          In-Time:{item.inTime}
-                        </Text>
-                        <Text style={styles.textStyle}>
-                          Person to Meet: {item.persontoMeet}
+                          Status : {item.status}
                         </Text>
                       </View>
-                      <View style={{flex: 0.25, justifyContent: 'center'}}>
-                        <View
-                          style={{flexDirection: 'row', alignItems: 'center'}}>
-                          <View
-                            style={{
-                              width: 6,
-                              height: 5,
-                              borderRadius: 5 / 2,
-                              backgroundColor: 'green',
-                              marginRight: 5,
-                            }}
-                          />
-                          <Text style={styles.textStyle}>{item.status}</Text>
-                        </View>
-                        <Text>{item.validity}</Text>
-                      </View>
-                      <View style={{flex: 0.2, justifyContent: 'center'}}>
+
+                      <View
+                        style={{
+                          width: '30%',
+                          justifyContent: 'center',
+                          borderRadius: 10,
+                        }}>
                         <View style={[styles.subbutton, {width: '100%'}]}>
                           <TouchableOpacity
                             onPress={() => {
-                              navigation.navigate('VisitorDetailsScreen');
+                              null;
                             }}
                             style={[styles.subbutton, {width: '100%'}]}>
-                            <Text style={styles.subtext}>View</Text>
+                            <Text style={styles.subtext}>View Details</Text>
                           </TouchableOpacity>
                         </View>
                       </View>
@@ -571,69 +655,83 @@ const HomeScreen = props => {
                 />
               </View>
             </View>
-          </View>
-        </View>
-      ) : demo === 'SuperAdmin' ? (
-        <ScrollView style={{width: '95%', alignSelf: 'center'}}>
-          <View
-            style={{
-              width: '100%',
-              alignSelf: 'center',
-              marginVertical: 10,
-            }}>
-            <View
-                style={{
-                  flexDirection: 'row',
-                  justifyContent: 'space-between',
-                  margin: 5,
-                }}>
-                <View style={styles.numofvisit}>
-                  <Text style={styles.numtext}>
-                  Total Subscription Count
-                  </Text>
-                  <Text style={styles.numtext2}>250</Text>
+          </ScrollView>
+        ) : demo === 'Security' ? (
+          <ScrollView style={{width: '95%', alignSelf: 'center'}}>
+            <View style={styles.topview}>
+              <View style={styles.dateCover}>
+                <View style={styles.imgview}>
+                  <Image
+                    source={require('../Assets/calendar.png')}
+                    style={styles.cal_logo}
+                  />
                 </View>
-                <View style={styles.numofvisit2}>
-                  <Text style={styles.numtext}>Active Subscription Count</Text>
-                  <Text style={[styles.numtext2, {color: '#A3D139'}]}>100</Text>
+                <View style={styles.timedateview}>
+                  <Text style={styles.time_date}>
+                    Date: {''}
+                    {dateTime.toLocaleDateString('en-US', {
+                      timeZone: 'Asia/Kolkata',
+                    })}
+                  </Text>
+                  {/* <Text style={styles.time_date}>Day: {''}{dayName}</Text> */}
+                  <Text style={[[styles.time_date, {fontSize: 17}]]}>
+                    Time: {''}
+                    {dateTime.toLocaleTimeString('en-US', {
+                      timeZone: 'Asia/Kolkata',
+                    })}
+                  </Text>
+                </View>
+                <View style={styles.imgview}>
+                  <Lottie
+                    source={require('../Assets/Suns.json')}
+                    autoPlay
+                    loop
+                    style={styles.lottiview}
+                  />
+                  <Text style={styles.time_date}>26'C</Text>
                 </View>
               </View>
-          </View>
-          <View>
-            <View
-              style={{borderRadius: 15, width: '100%',backgroundColor:'#3085fe'}}>
+            </View>
+            <View style={{marginTop: 10}}>
+              <Text style={styles.cardText}>Visitor's Requests:</Text>
               <FlatList
-                data={superData}
+                data={datas}
                 renderItem={({item}) => (
-                  <View
-                    style={{
-                      backgroundColor: '#fff',
-                      borderRadius: 15,
-                      margin: 10,
-                      marginTop: 10,
-                      flexDirection: 'row',
-                      padding: 10,
-                      justifyContent: 'space-between',
-                    }}>
-                    <View style={{justifyContent: 'center'}}>
-                      <Text style={styles.textStyle}>Name : {item.Name}</Text>
-                      <Text style={styles.textStyle}>
-                        Valid Upto : {item.validity}
-                      </Text>
-                      <Text style={styles.textStyle}>
-                        Status : {item.status}
-                      </Text>
+                  <View style={styles.flatview}>
+                    <View style={styles.imgflatview}>
+                      <Image
+                        source={require('../Assets/pic.png')}
+                        style={styles.flatlogo}
+                      />
                     </View>
-
-                    <View style={{width: '30%', justifyContent: 'center',borderRadius:10}}>
+                    <View style={styles.nameview}>
+                      <Text style={styles.namestyle}>
+                        {item.Name}
+                        <Text style={styles.nametext}>{item.NameText}</Text>
+                      </Text>
                       <View
-                        style={[styles.subbutton, {width: '100%'}]}>
+                        style={{
+                          flexDirection: 'row',
+                          width: '100%',
+                          margin: 2,
+                        }}>
                         <TouchableOpacity
-                          onPress={() => {
-                            null;
-                          }}
-                          style={[styles.subbutton, {width: '100%'}]}>
-                          <Text style={styles.subtext}>View Details</Text>
+                          onPress={() => null}
+                          style={[
+                            styles.subbutton,
+                            {backgroundColor: 'green'},
+                          ]}>
+                          <Text style={styles.subtext}>Accept</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => null}
+                          style={[styles.subbutton, {backgroundColor: 'red'}]}>
+                          <Text style={styles.subtext}>Reject</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity
+                          onPress={() => null}
+                          style={styles.subbutton}>
+                          <Text style={styles.subtext}>Visitor Details</Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -642,126 +740,40 @@ const HomeScreen = props => {
                 keyExtractor={item => item.id}
               />
             </View>
-          </View>
-        </ScrollView>
-      ) : demo === 'Security' ? (
-        <ScrollView style={{width: '95%', alignSelf: 'center'}}>
-          <View
-            style={styles.topview}>
-            <View style={styles.dateCover}>
-              <View style={styles.imgview}>
-                <Image
-                  source={require('../Assets/calendar.png')}
-                  style={styles.cal_logo}
-                />
-              </View>
-              <View style={styles.timedateview}>
-                <Text style={styles.time_date}>
-                  Date: {''}
-                  {dateTime.toLocaleDateString('en-US', {
-                    timeZone: 'Asia/Kolkata',
-                  })}
-                </Text>
-                {/* <Text style={styles.time_date}>Day: {''}{dayName}</Text> */}
-                <Text style={[[styles.time_date, {fontSize: 17}]]}>
-                  Time: {''}
-                  {dateTime.toLocaleTimeString('en-US', {
-                    timeZone: 'Asia/Kolkata',
-                  })}
-                </Text>
-              </View>
-              <View style={styles.imgview}>
-                <Lottie
-                  source={require('../Assets/Suns.json')}
-                  autoPlay
-                  loop
-                  style={styles.lottiview}
-                />
-                <Text style={styles.time_date}>26'C</Text>
-              </View>
-            </View>
-          </View>
-          <View style={{marginTop: 10}}>
-            <Text style={styles.cardText}>Visitor's Requests:</Text>
-            <FlatList
-              data={datas}
-              renderItem={({item}) => (
-                <View style={styles.flatview}>
-                  <View style={styles.imgflatview}>
-                    <Image
-                      source={require('../Assets/pic.png')}
-                      style={styles.flatlogo}
-                    />
-                  </View>
-                  <View style={styles.nameview}>
-                    <Text style={styles.namestyle}>
-                      {item.Name}
-                      <Text style={styles.nametext}>{item.NameText}</Text>
-                    </Text>
-                    <View
-                      style={{
-                        flexDirection: 'row',
-                        width: '100%',
-                        margin: 2,
-                      }}>
-                      <TouchableOpacity
-                        onPress={() => null}
-                        style={[styles.subbutton, {backgroundColor: 'green'}]}>
-                        <Text style={styles.subtext}>Accept</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        onPress={() => null}
-                        style={[styles.subbutton, {backgroundColor: 'red'}]}>
-                        <Text style={styles.subtext}>Reject</Text>
-                      </TouchableOpacity>
-                      <TouchableOpacity
-                        onPress={() =>
-                         null
-                        }
-                        style={styles.subbutton}>
-                        <Text style={styles.subtext}>Visitor Details</Text>
-                      </TouchableOpacity>
+            <View style={{marginTop: 10}}>
+              <Text style={styles.cardText}>Active Visitors:</Text>
+              <FlatList
+                data={datas}
+                renderItem={({item}) => (
+                  <View style={styles.flatview}>
+                    <View style={styles.imgflatview}>
+                      <Image
+                        source={require('../Assets/pic.png')}
+                        style={styles.flatlogo}
+                      />
                     </View>
+                    <View style={styles.nameview1}>
+                      <Text style={styles.namestyle}>{item.Name}</Text>
+                      <Text style={styles.nametext}>{item.role}</Text>
+                    </View>
+                    <Text style={{color: '#000'}}>15 mins ago</Text>
                   </View>
-                </View>
-              )}
-              keyExtractor={item => item.id}
-            />
-          </View>
-          <View style={{marginTop: 10}}>
-            <Text style={styles.cardText}>Active Visitors:</Text>
-            <FlatList
-              data={datas}
-              renderItem={({item}) => (
-                <View style={styles.flatview}>
-                  <View style={styles.imgflatview}>
-                    <Image
-                      source={require('../Assets/pic.png')}
-                      style={styles.flatlogo}
-                    />
-                  </View>
-                  <View style={styles.nameview1}>
-                    <Text style={styles.namestyle}>{item.Name}</Text>
-                    <Text style={styles.nametext}>{item.role}</Text>
-                  </View>
-                  <Text style={{color: '#000'}}>15 mins ago</Text>
-                </View>
-              )}
-              keyExtractor={item => item.id}
-            />
-          </View>
-        </ScrollView>
-      ) : (
-        <View style={{flex: 1, backgroundColor: '#fff'}}>
-          {/* <Lottie
+                )}
+                keyExtractor={item => item.id}
+              />
+            </View>
+          </ScrollView>
+        ) : (
+          <View style={{flex: 1, backgroundColor: '#fff'}}>
+            {/* <Lottie
             source={require('../../src/components/Assets/homeani.json')}
             autoPlay
             loop
             style={{height: 150, width: 150}}
           /> */}
-        </View>
-      )}
-    </ScrollView>
+          </View>
+        )}
+      </ScrollView>
     </SafeAreaView>
   );
 };
@@ -836,7 +848,7 @@ const styles = StyleSheet.create({
   topview: {
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor:'#3085fe',
+    backgroundColor: '#3085fe',
     width: '100%',
     borderRadius: 10,
     marginTop: 10,
@@ -863,7 +875,7 @@ const styles = StyleSheet.create({
     marginTop: 7,
     flexDirection: 'row',
     backgroundColor: '#fff',
-    marginBottom:7,
+    marginBottom: 7,
     borderRadius: 10,
     padding: 5,
     shadowColor: '#000',
@@ -916,7 +928,7 @@ const styles = StyleSheet.create({
   },
   numofvisit: {
     height: 130,
-    width: 185,
+    width: 175,
     borderWidth: 1,
     borderColor: 'rgba(48, 133, 254, 0.85)',
     backgroundColor: 'rgba(48, 133, 254, 0.15)',
@@ -937,7 +949,7 @@ const styles = StyleSheet.create({
   },
   numofvisit2: {
     height: 130,
-    width: 185,
+    width: 175,
     borderWidth: 1,
     borderColor: 'rgba(163, 209, 57, 0.85)',
     backgroundColor: 'rgba(163, 209, 57, 0.15)',
@@ -946,7 +958,7 @@ const styles = StyleSheet.create({
   },
   numofvisit3: {
     height: 130,
-    width: 185,
+    width: 175,
     borderWidth: 1,
     borderColor: 'rgba(255, 127, 116, 0.85)',
     backgroundColor: 'rgba(255, 127, 116, 0.15)',
@@ -955,7 +967,7 @@ const styles = StyleSheet.create({
   },
   numofvisit4: {
     height: 130,
-    width: 185,
+    width: 175,
     borderWidth: 1,
     borderColor: 'rgba(48, 190, 182, 0.85)',
     backgroundColor: 'rgba(48, 190, 182, 0.15)',

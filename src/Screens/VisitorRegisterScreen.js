@@ -102,73 +102,74 @@ export default function VisitorRegisterScreen() {
       </View> */}
       <ScrollView>
         <KeyboardAvoidingView style={{flex: 1}}>
-          {/* <Text style={styles.text}>Name</Text> */}
+        
           <View style={{width:'95%',alignSelf:'center',borderWidth:0}}>
+          <Text style={styles.text}>Name</Text>
             <TextInput
               label="Name"
               value={firstname}
-              style={{marginVertical:15}}
+              style={{backgroundColor:'#fff'}}
               mode="outlined"
               onChangeText={text => setfirstname(text)}
               activeOutlineColor={'#3085fe'}
             />
-            {/* <Text style={styles.text}>Mobile Number</Text>
-          <InputText
+            <Text style={styles.text}>Email</Text> 
+          {/* <InputText
             value={mobilenumber}
             // placeholder={'Moblie Number'}
             mobile={true}
-            onChangeNumber={text => onChangeNumber(text)}
-          /> */}
+            onChangeNumber={text => onChangeNumber(text)} */}
+          
             <TextInput
               label="Email"
               value={email}
-              style={{marginVertical:15}}
+              style={{backgroundColor:'#fff'}}
               mode="outlined"
               onChangeText={text => setEmail(text)}
               activeOutlineColor={'#3085fe'}
             />
-            {/* <Text style={styles.text}>Civil ID</Text> */}
+            <Text style={styles.text}>Civil ID</Text>
             <TextInput
               label="Civil ID"
               onChangeText={text => setcivilid(text)}
               value={civilid}
-              style={{marginVertical:15}}
+              style={{backgroundColor:'#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            {/* <Text style={styles.text}>Purpose Of Visit</Text> */}
+            <Text style={styles.text}>Purpose Of Visit</Text>
             <TextInput
               label="Purpose Of Visit"
               onChangeText={text => setvisit(text)}
               value={visit}
-              style={{marginVertical:15}}
+              style={{backgroundColor:'#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            {/* <Text style={styles.text}>Person To Meet</Text> */}
+            <Text style={styles.text}>Person To Meet</Text>
             <TextInput
               label="Person To Meet"
               onChangeText={text => setmeet(text)}
               value={meet}
-              style={{marginVertical:15}}
+              style={{backgroundColor:'#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            {/* <Text style={styles.text}>Company Name</Text> */}
+            <Text style={styles.text}>Company Name</Text>
             <TextInput
               label="Company Name"
               onChangeText={text => setcompany(text)}
               value={comapny}
-              style={{marginVertical:15}}
+              style={{backgroundColor:'#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            {/* <Text style={styles.text}>In Time</Text> */}
+            <Text style={styles.text}>In Time</Text>
             <TextInput
               label="In Time"
               onChangeText={text => setintime(text)}
               value={intime}
-              style={{marginVertical:15}}
+              style={{backgroundColor:'#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
@@ -198,9 +199,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 15,
     fontWeight: '500',
-    color: '#411350',
-    marginLeft: 20,
-    marginVertical: 15,
+    color: '#000',
+    marginLeft:5,
+    marginVertical: 10,
   },
   inputcover: {
     height: '100%',

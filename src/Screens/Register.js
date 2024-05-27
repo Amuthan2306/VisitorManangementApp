@@ -122,7 +122,7 @@ export default function Register() {
             }
             activeOutlineColor={'#3085fe'}
           />
-          <View style={{flexDirection: 'row', borderWidth: 0}}>
+          <View style={{flexDirection: 'row', borderWidth: 0,width:'95%'}}>
             <Checkbox.Android
               status={isChecked ? 'checked' : 'unchecked'}
               onPress={() => setIsChecked(!isChecked)}
@@ -133,9 +133,9 @@ export default function Register() {
               I agrree to the
               <Text style={{fontSize: 15, fontWeight: '500', color: '#3085fe'}}>
                 {' '}
-                terms & Conditions & Privacy policy
+                terms & Conditions & Privacy {'\n'}policy
               </Text>
-              {'\n'}set out by this site
+             {" "}set out by this site
             </Text>
           </View>
           <TouchableOpacity

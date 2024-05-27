@@ -8,11 +8,37 @@ import {
   TouchableOpacity,
   Image,
   Animated,
+  Alert,
+  BackHandler
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function MainScreen() {
+
+  useEffect(() => {
+    const backAction = () => {
+      Alert.alert('Hold on!', 'Are you sure you want to go back?', [
+        {
+          text: 'Cancel',
+          onPress: () => null,
+          style: 'cancel',
+        },
+        {text: 'YES', onPress: () => BackHandler.exitApp()},
+      ]);
+      return true;
+    };
+
+    const backHandler = BackHandler.addEventListener(
+      'hardwareBackPress',
+      backAction,
+    );
+
+    return () => backHandler.remove();
+  }, [])
+
+
+
   const navigation = useNavigation();
   const onClickBuildingAdmin = () => {
     AsyncStorage.setItem('@MySuperStore:key', 'Admin');
@@ -108,14 +134,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   topContainer: {
-    flex: 0.3,
+    flex: 0.4,
     backgroundColor: '#fff',
     // flexDirection:'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   bottomContainer: {
-    flex: 0.7,
+    flex: 0.6,
     backgroundColor: '#3085fe',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
@@ -123,7 +149,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   flatListContainer: {
-    paddingVertical: 20,
+   flex:1,
+   justifyContent:'center',
+    // borderWidth:1
   },
   itemContainer: {
     height: 180,

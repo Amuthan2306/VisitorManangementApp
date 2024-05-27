@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
 import {
   View,
   Text,
@@ -7,6 +7,8 @@ import {
   Image,
   TouchableOpacity,
   StyleSheet,
+  BackHandler,
+  Alert
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
@@ -21,6 +23,8 @@ export default function LoginScreen() {
   const handleLogin = () => {
     navigation.navigate('HomeScreen')
   };
+
+
 
   return (
     <KeyboardAwareScrollView contentContainerStyle={styles.container}>
