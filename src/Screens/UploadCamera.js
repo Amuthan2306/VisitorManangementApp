@@ -244,7 +244,7 @@ export default function UploadCamera(props) {
         {'Capture'}
       </Text>
       <Text style={{textAlign: 'center', paddingVertical: 5, color: '#fff'}}>
-        {'Placethedoc'}
+        {'Place the doc'}
       </Text>
       <TouchableOpacity onPress={() => captureImage()}>
         <View
@@ -289,7 +289,7 @@ export default function UploadCamera(props) {
           padding: 15,
         }}>
         <TouchableOpacity style={styles.subbutton} onPress={openFilePicker}>
-          <Text style={styles.subtext}>Uploadgallery</Text>
+          <Text style={styles.subtext}>Upload gallery</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.subbutton} onPress={() => _next()}>
           <Text style={styles.subtext}>Submit</Text>

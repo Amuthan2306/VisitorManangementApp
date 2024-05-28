@@ -231,6 +231,8 @@ const styles = StyleSheet.create({
     width: (Width / 10) * 8,
     borderRadius: 30,
     padding: 15,
+    borderWidth:0.5,
+    borderColor:'#3085fe',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {

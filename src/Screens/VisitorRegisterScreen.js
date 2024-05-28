@@ -95,7 +95,7 @@ export default function VisitorRegisterScreen() {
     <SafeAreaView style={styles.container}>
       {/* {spin ? <Spinner /> : null} */}
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
-      <AppHeader title={'Visitors Register'} />
+      <AppHeader title={`Visitor's Register`} />
       {/*<View style={styles.button_cover}>
         <Backbutton onPress={() => navigation.goBack()} />
         <Text style={styles.profile_text}>Visitor's Register</Text>
@@ -137,18 +137,18 @@ export default function VisitorRegisterScreen() {
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            <Text style={styles.text}>Purpose Of Visit</Text>
+            <Text style={styles.text}>Purpose of Visit</Text>
             <TextInput
-              label="Purpose Of Visit"
+              label="Purpose of Visit"
               onChangeText={text => setvisit(text)}
               value={visit}
               style={{backgroundColor:'#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            <Text style={styles.text}>Person To Meet</Text>
+            <Text style={styles.text}>Person to Meet</Text>
             <TextInput
-              label="Person To Meet"
+              label="Person to Meet"
               onChangeText={text => setmeet(text)}
               value={meet}
               style={{backgroundColor:'#fff'}}

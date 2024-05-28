@@ -11,6 +11,8 @@ import React, {useState} from 'react';
 import {TextInput, Checkbox} from 'react-native-paper';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useNavigation} from '@react-navigation/native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
+import AppHeader from '../Global/Appheader';
 export default function Register() {
   const [firstname, setFirstname] = React.useState('');
   const [lastname, setLastname] = React.useState('');
@@ -25,19 +27,20 @@ export default function Register() {
     <KeyboardAwareScrollView style={{backgroundColor: '#fff'}}>
       <SafeAreaView style={styles.container}>
         <StatusBar barStyle={'dark-content'} backgroundColor={'#fff'} />
+        <AppHeader title={'Register'} />
         <View
           style={{
             height: 200,
             width: '95%',
-            alignSelf: 'center',
-            // margin: 10,
-            // alignItems:'flex-end',
-            // justifyContent: 'flex-end',
+            // alignSelf: 'center',
+            margin: 10,
+            // alignItems:'center',
+            // justifyContent: 'center',
             // borderWidth: 1,
           }}>
           <Image
             source={require('../Assets/loginimg.png')}
-            style={{height: 100, width: 100, marginTop: 10}}
+            style={{height: 100, width: 100, marginTop: 20}}
           />
           <Text
             style={{
@@ -64,14 +67,15 @@ export default function Register() {
             height: 500,
             // marginTop: 10,
             // borderWidth: 1,
-            width: '95%',
-            alignSelf: 'center',
+            width: '100%',
+            // alignSelf: 'center',
             justifyContent: 'space-between',
           }}>
           <TextInput
             label="First Name"
             // placeholder="Email"
             value={firstname}
+            style={styles.input}
             mode="outlined"
             onChangeText={text => setFirstname(text)}
             activeOutlineColor={'#3085fe'}
@@ -79,6 +83,7 @@ export default function Register() {
           <TextInput
             label="Last Name"
             // placeholder="Email"
+            style={styles.input}
             value={lastname}
             mode="outlined"
             onChangeText={text => setLastname(text)}
@@ -87,6 +92,7 @@ export default function Register() {
           <TextInput
             label="Email"
             // placeholder="Email"
+            style={styles.input}
             value={email}
             mode="outlined"
             onChangeText={text => setEmail(text)}
@@ -95,6 +101,7 @@ export default function Register() {
           <TextInput
             label="Password"
             secureTextEntry={!showPassword}
+            style={styles.input}
             mode="outlined"
             value={Password}
             onChangeText={text => setPassword(text)}
@@ -110,6 +117,7 @@ export default function Register() {
           <TextInput
             label="Confirm Password"
             secureTextEntry={!showeyePassword1}
+            style={styles.input}
             mode="outlined"
             value={confirmpassword}
             onChangeText={text => setconfirmPassword(text)}
@@ -122,7 +130,7 @@ export default function Register() {
             }
             activeOutlineColor={'#3085fe'}
           />
-          <View style={{flexDirection: 'row', borderWidth: 0,width:'95%'}}>
+          <View style={{flexDirection: 'row', borderWidth: 0,width:'96%',marginLeft:2.5}}>
             <Checkbox.Android
               status={isChecked ? 'checked' : 'unchecked'}
               onPress={() => setIsChecked(!isChecked)}
@@ -130,10 +138,10 @@ export default function Register() {
               style={{height: 20, width: 20}}
             />
             <Text style={{fontSize: 15, fontWeight: '400', color: '#000'}}>
-              I agrree to the
+              I agree to the
               <Text style={{fontSize: 15, fontWeight: '500', color: '#3085fe'}}>
                 {' '}
-                terms & Conditions & Privacy {'\n'}policy
+                terms & conditions & privacy {'\n'}policy
               </Text>
              {" "}set out by this site
             </Text>
@@ -141,7 +149,7 @@ export default function Register() {
           <TouchableOpacity
             style={{
               height: 50,
-              width: '100%',
+              width: '95%',
               alignSelf: 'center',
               backgroundColor: '#3085fe',
               borderRadius: 10,
@@ -233,4 +241,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
+  input:{
+    width:'95%',
+    alignSelf:'center'
+  }
 });

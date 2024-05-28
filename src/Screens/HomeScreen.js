@@ -65,7 +65,7 @@ const HomeScreen = props => {
       visitorName: 'Vikram',
       inTime: '09:00 AM',
       persontoMeet: 'Vedha',
-      status: 'active',
+      status: 'Active',
       validity: '1 Month',
     },
     {
@@ -73,7 +73,7 @@ const HomeScreen = props => {
       visitorName: 'Surya',
       inTime: '07:00 PM',
       persontoMeet: 'Meena',
-      status: 'inactive',
+      status: 'Inactive',
       validity: '-',
     },
     {
@@ -81,7 +81,7 @@ const HomeScreen = props => {
       visitorName: 'divya',
       inTime: '09:00 AM',
       persontoMeet: 'ruby',
-      status: 'active',
+      status: 'Active',
       validity: '1 Month',
     },
     {
@@ -89,7 +89,7 @@ const HomeScreen = props => {
       visitorName: 'Leo',
       inTime: '09:00 AM',
       persontoMeet: 'James',
-      status: 'active',
+      status: 'Active',
       validity: '1 Month',
     },
     {
@@ -97,7 +97,7 @@ const HomeScreen = props => {
       visitorName: 'Muthu',
       inTime: '10:40 AM',
       persontoMeet: 'Priya',
-      status: 'active',
+      status: 'Active',
       validity: '1 Week',
     },
     {
@@ -105,7 +105,7 @@ const HomeScreen = props => {
       visitorName: 'Ammu',
       inTime: '12:00 PM',
       persontoMeet: 'Saranya',
-      status: 'inactive',
+      status: 'Inactive',
       validity: '-',
     },
     {
@@ -113,7 +113,7 @@ const HomeScreen = props => {
       visitorName: 'Ammu',
       inTime: '12:00 PM',
       persontoMeet: 'Saranya',
-      status: 'inactive',
+      status: 'Inactive',
       validity: '-',
     },
 
@@ -122,7 +122,7 @@ const HomeScreen = props => {
       visitorName: 'Ammu',
       inTime: '12:00 PM',
       persontoMeet: 'Saranya',
-      status: 'inactive',
+      status: 'Inactive',
       validity: '-',
     },
   ];
@@ -131,37 +131,37 @@ const HomeScreen = props => {
     {
       id: '1',
       Name: 'Vikram',
-      status: 'active',
+      status: 'Active',
       validity: '1 Month',
     },
     {
       id: '2',
       Name: 'Surya',
-      status: 'inactive',
+      status: 'Inactive',
       validity: '-',
     },
     {
       id: '3',
       Name: 'divya',
-      status: 'active',
+      status: 'Active',
       validity: '1 Month',
     },
     {
       id: '4',
       Name: 'Leo',
-      status: 'active',
+      status: 'Active',
       validity: '1 Month',
     },
     {
       id: '5',
       Name: 'Muthu',
-      status: 'active',
+      status: 'Active',
       validity: '1 Week',
     },
     {
       id: '6',
       Name: 'Ammu',
-      status: 'inactive',
+      status: 'Inactive',
       validity: '-',
     },
     {
@@ -173,7 +173,7 @@ const HomeScreen = props => {
   ];
 
   const dayBar = {
-    labels: ['01', '02', '03', '04', '05'],
+    labels: ['01', '02', '03', '04', '05','06',],
     datasets: [
       {
         data: [2000, 2001, 2002, 2003, 2004, 2005],
@@ -181,7 +181,7 @@ const HomeScreen = props => {
     ],
   };
   const weekBar = {
-    labels: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     datasets: [
       {
         data: [2005, 2002, 2003, 2001, 2004, 2005],
@@ -271,22 +271,30 @@ const HomeScreen = props => {
             flexDirection: 'row',
             width: '100%',
             backgroundColor: '#3085fe',
-            justifyContent: 'space-around',
+            justifyContent: 'space-between',
             height: 70,
           }}>
           <TouchableOpacity style={{}} onPress={() => navigation.openDrawer()}>
             <Image
               source={require('../Assets/menu.png')}
-              style={{height: 30, width: 30}}
+              style={{height: 30, width: 30, marginLeft: 12}}
             />
           </TouchableOpacity>
-          <Text style={styles.titleText}>Visitor's Management</Text>
+          <Text style={styles.titleText}>
+            {demo === 'Admin'
+              ? 'Building Admin'
+              : demo === 'SuperAdmin'
+              ? 'SuperAdmin'
+              : demo === 'Security'
+              ? 'Security'
+              : null}
+          </Text>
           <TouchableOpacity onPress={() => null}>
             <Ionicon
               name="notifications-outline"
               size={25}
               color={'#fff'}
-              style={{fontWeight: '900'}}
+              style={{fontWeight: '900', marginRight: 12}}
             />
           </TouchableOpacity>
         </View>
@@ -412,7 +420,7 @@ const HomeScreen = props => {
                   }}
                   bezier
                   style={{
-                    // marginVertical: 8,
+                    marginVertical: 8,
                     borderRadius: 10,
                   }}
                 />
@@ -515,7 +523,7 @@ const HomeScreen = props => {
                     borderRadius: 15,
                     width: '100%',
                     backgroundColor: '#3085fe',
-                    marginBottom:15
+                    marginBottom: 15,
                   }}>
                   <FlatList
                     data={data}
@@ -529,16 +537,34 @@ const HomeScreen = props => {
                           flexDirection: 'row',
                           padding: 10,
                         }}>
-                        <View style={{flex: 0.55, justifyContent: 'center'}}>
+                        <View style={{flex: 0.8,flexDirection:'row', justifyContent: 'center',borderWidth:0}}>
+                          <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
                           <Text style={styles.textStyle}>
-                            Visitor Name : {item.visitorName}
+                            Visitor Name
                           </Text>
                           <Text style={styles.textStyle}>
-                            In-Time:{item.inTime}
+                            In-Time
                           </Text>
                           <Text style={styles.textStyle}>
-                            Person to Meet: {item.persontoMeet}
+                            Person to Meet
                           </Text>
+                          </View>
+                          <View style={{flex:0.04,}}>
+                            <Text style={{color:'#000',}}>:</Text>
+                            <Text style={{color:'#000'}}>:</Text>
+                            <Text style={{color:'#000'}}>:</Text>
+                          </View>
+                          <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
+                          <Text style={styles.textStyle}>
+                            {item.visitorName}
+                          </Text>
+                          <Text style={styles.textStyle}>
+                          {item.inTime}
+                          </Text>
+                          <Text style={styles.textStyle}>
+                            {item.persontoMeet}
+                          </Text>
+                          </View>
                         </View>
                         <View style={{flex: 0.25, justifyContent: 'center'}}>
                           <View
@@ -563,7 +589,7 @@ const HomeScreen = props => {
                           <View style={[styles.subbutton, {width: '100%'}]}>
                             <TouchableOpacity
                               onPress={() => {
-                                navigation.navigate('VisitorDetailsScreen');
+                                null
                               }}
                               style={[styles.subbutton, {width: '100%'}]}>
                               <Text style={styles.subtext}>View</Text>
@@ -608,7 +634,7 @@ const HomeScreen = props => {
                   borderRadius: 15,
                   width: '100%',
                   backgroundColor: '#3085fe',
-                  marginBottom:10
+                  marginBottom: 10,
                 }}>
                 <FlatList
                   data={superData}
@@ -623,14 +649,30 @@ const HomeScreen = props => {
                         padding: 10,
                         justifyContent: 'space-between',
                       }}>
-                      <View style={{justifyContent: 'center'}}>
-                        <Text style={styles.textStyle}>Name : {item.Name}</Text>
+                      <View style={{justifyContent: 'center',borderWidth:0,flex:0.8,flexDirection:'row'}}>
+                      <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
+                        <Text style={styles.textStyle}>Name</Text>
                         <Text style={styles.textStyle}>
-                          Valid Upto : {item.validity}
+                          Valid Upto
                         </Text>
                         <Text style={styles.textStyle}>
-                          Status : {item.status}
+                          Status
                         </Text>
+                      </View>
+                      <View style={{flex:0.04,borderWidth:0,justifyContent:'center'}}>
+                        <Text style={styles.textStyle}>:</Text>
+                        <Text style={styles.textStyle}>: </Text>
+                        <Text style={styles.textStyle}>:</Text>
+                      </View>
+                      <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
+                        <Text style={styles.textStyle}>{item.Name}</Text>
+                        <Text style={styles.textStyle}>
+                         {item.validity}
+                        </Text>
+                        <Text style={styles.textStyle}>
+                        {item.status}
+                        </Text>
+                      </View>
                       </View>
 
                       <View
@@ -688,7 +730,7 @@ const HomeScreen = props => {
                     loop
                     style={styles.lottiview}
                   />
-                  <Text style={styles.time_date}>26'C</Text>
+                  <Text style={styles.time_date}>26{"\u00b0"}C</Text>
                 </View>
               </View>
             </View>

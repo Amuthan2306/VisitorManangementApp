@@ -124,4 +124,9 @@ const styles = StyleSheet.create({
   buttonTouchable: {
     padding: 16,
   },
+  text:{
+    fontSize:15,
+    fontWeight:'500',
+    color:'#000'
+  }
 });

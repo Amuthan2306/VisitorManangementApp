@@ -236,6 +236,7 @@ const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     borderWidth: 0.5,
+    borderColor:'#3085fe',
     backgroundColor: 'white',
     height: (Height / 25) * 8,
     width: (Width / 10) * 8,
@@ -260,7 +261,7 @@ const styles = StyleSheet.create({
     color: '#3085fe',
     fontWeight: 'bold',
     marginVertical: 5,
-    textAlign: 'right',
-    marginRight: 5,
+    // textAlign: 'right',
+    marginLeft:10
   },
 });

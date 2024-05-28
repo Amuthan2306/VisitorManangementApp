@@ -87,7 +87,7 @@ export default function AttachFile() {
             </View>
             <View style={styles.imgtext}>
               <Text style={styles.nochoosetext}>
-                {load != null ? load : 'No Choosen file'}
+                {load != null ? load : 'No Chosen file'}
               </Text>
             </View>
           </View>
@@ -100,7 +100,7 @@ export default function AttachFile() {
             </View>
             <View style={styles.imgtext}>
               <Text style={styles.nochoosetext}>
-                {loadx != null ? loadx : 'No Choosen file'}{' '}
+                {loadx != null ? loadx : 'No Chosen file'}{' '}
               </Text>
             </View>
           </View>

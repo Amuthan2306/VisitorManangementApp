@@ -35,41 +35,30 @@ export default function VerifyCode() {
   }, []);
 
   const handleInputChange = (index, value) => {
-    if (value.length === 1) {
-      const newCode = [...code];
-      newCode[index] = value;
-      setCode(newCode);
-      if (index < 3) {
-        inputRefs[index + 1].current.focus();
-      }
-    }
-  };
+    const newCode = [...code];
+    newCode[index] = value;
+    setCode(newCode);
+    console.log('Input value:', value);
 
-  const handleBackspace = index => {
-    if (index > 0) {
-      const newCode = [...code];
-      newCode[index - 1] = '';
-      setCode(newCode);
+    // Move focus to the next input field if the current index is less than 3
+    if (index < 3 && value) {
+      inputRefs[index + 1].current.focus();
+    } else if (index > 0 && !value) {
+      // Focus on the previous input if the current value is empty and the index is greater than 0
       inputRefs[index - 1].current.focus();
     }
   };
 
   const handleVerify = () => {
     const otp = code.join('');
-    // Here you can add verification logic using the OTP entered
-    // For example, you can send the OTP to your backend for verification
-    // and navigate to the next screen if it's valid
     console.log('Verifying OTP:', otp);
-    // For now, let's navigate to the next screen directly
     navigation.navigate('NewPassword');
-    // Clearing OTP after verification
     setCode(['', '', '', '']);
-    // Dismissing keyboard after navigation
     Keyboard.dismiss();
   };
 
   return (
-    <KeyboardAwareScrollView style={{backgroundColor:'#fff'}}>
+    <KeyboardAwareScrollView style={{backgroundColor: '#fff'}}>
       <SafeAreaView style={styles.container}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Icon
@@ -95,11 +84,6 @@ export default function VerifyCode() {
               style={styles.input}
               value={value}
               onChangeText={text => handleInputChange(index, text)}
-              onKeyPress={({nativeEvent}) => {
-                if (nativeEvent.key === 'Backspace') {
-                  handleBackspace(index);
-                }
-              }}
               keyboardType="numeric"
               maxLength={1}
             />
@@ -160,6 +144,7 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 10,
     borderColor: '#3085fe',
+    color: '#3085fe',
     borderWidth: 1,
     textAlign: 'center',
     fontSize: 24,

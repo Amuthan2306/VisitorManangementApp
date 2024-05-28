@@ -173,8 +173,6 @@ const DrawerContents = props => {
   const onClickSecurityDrawer = item => {
     item.id == 1
       ? navigation.navigate('EditProfile')
-      : item.id == 2
-      ? navigation.navigate('ViewReport')
       : item.id == 4
       ? setModalVisible(true)
       : null;
@@ -321,9 +319,8 @@ const DrawerContents = props => {
                 fontSize={12}
                 color={'#fff'}
                 fontWeight="400"
-                marginLeft={10}
+                marginLeft={15}
                 style={{color: '#fff', fontWeight: '700', fontSize: 14}}>
-                {' '}
                 {item.title}{' '}
               </Text>
             </TouchableOpacity>
@@ -440,15 +437,15 @@ const styles = StyleSheet.create({
     borderRadius: Width / 3,
     borderColor: '#242760',
     flexDirection: 'row',
-    borderWidth: 1,
+    // borderWidth: 1,
     backgroundColor: '#fff',
     margin: 10,
   },
   cameras: {
     width: 25,
     height: 22,
-    bottom: 25,
-    left: 80,
+    bottom: 20,
+    left: 85,
     tintColor: '#fff',
   },
   centeredView: {
