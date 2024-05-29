@@ -17,6 +17,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import AppHeader from '../Global/Appheader';
+import DropDown from 'react-native-paper-dropdown';
 export default function VisitorRegisterScreen() {
   const navigation = useNavigation();
   const [firstname, setfirstname] = useState('');
@@ -89,40 +90,57 @@ export default function VisitorRegisterScreen() {
   //   },2000)
 
   // }, []);
+  const [showDropDown, setShowDropDown] = useState(false);
+  const [selectedValue, setSelectedValue] = useState('');
+  const [showDropDown1, setShowDropDown1] = useState(false);
+  const [selectedValue1, setSelectedValue1] = useState('');
+
+  const dropdownItems = [
+    {label: 'Meeting', value: 'option1'},
+    {label: 'Interview', value: 'option2'},
+    {label: 'Client visit', value: 'option3'},
+    {label: 'Others', value: 'option4'},
+  ];
+  const dropdownItems1 = [
+    {label: 'Aadhar Card', value: 'option1'},
+    {label: 'Voter Card', value: 'option2'},
+    {label: 'Pan Card', value: 'option3'},
+    {label: 'Driving Licence', value: 'option4'},
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
       {/* {spin ? <Spinner /> : null} */}
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'} />
-      <AppHeader title={`Visitor's Register`} />
+      <AppHeader title={"Visitor's Register"} />
       {/*<View style={styles.button_cover}>
         <Backbutton onPress={() => navigation.goBack()} />
         <Text style={styles.profile_text}>Visitor's Register</Text>
       </View> */}
       <ScrollView>
         <KeyboardAvoidingView style={{flex: 1}}>
-        
-          <View style={{width:'95%',alignSelf:'center',borderWidth:0}}>
-          <Text style={styles.text}>Name</Text>
+          <View style={{width: '95%', alignSelf: 'center', borderWidth: 0}}>
+            <Text style={styles.text}>Name</Text>
             <TextInput
               label="Name"
+              selectionColor='#3085fe'
               value={firstname}
-              style={{backgroundColor:'#fff'}}
+              style={{backgroundColor: '#fff'}}
               mode="outlined"
               onChangeText={text => setfirstname(text)}
               activeOutlineColor={'#3085fe'}
             />
-            <Text style={styles.text}>Email</Text> 
-          {/* <InputText
+            <Text style={styles.text}>Email</Text>
+            {/* <InputText
             value={mobilenumber}
             // placeholder={'Moblie Number'}
             mobile={true}
             onChangeNumber={text => onChangeNumber(text)} */}
-          
+
             <TextInput
               label="Email"
               value={email}
-              style={{backgroundColor:'#fff'}}
+              style={{backgroundColor: '#fff'}}
               mode="outlined"
               onChangeText={text => setEmail(text)}
               activeOutlineColor={'#3085fe'}
@@ -132,50 +150,80 @@ export default function VisitorRegisterScreen() {
               label="Company Name"
               onChangeText={text => setcompany(text)}
               value={comapny}
-              style={{backgroundColor:'#fff'}}
+              style={{backgroundColor: '#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            <Text style={styles.text}>Civil ID</Text>
+            <Text style={styles.text}>ID Proof</Text>
+            <DropDown
+              // label={'Select an option'}
+              mode={'outlined'}
+              value={selectedValue1}
+              setValue={setSelectedValue1}
+              list={dropdownItems1}
+              placeholder='ID Proof'
+              visible={showDropDown1}
+              showDropDown={() => setShowDropDown1(true)}
+              onDismiss={() => setShowDropDown1(false)}
+              theme={{ colors: { primary: '#3085fe', placeholder: '#3085fe', text: '#000' } }}
+              inputProps={{
+                outlineColor: showDropDown1 ? '#3085fe' : '#000',
+                right: <TextInput.Icon icon="menu-down" color={'#000'} />,
+                style: styles.dropdownInput, // Apply styles here
+              }}
+              dropDownItemStyle={styles.dropdownItem} // Custom style for dropdown items
+              dropDownContainerStyle={styles.dropdownContainer} // Custom style for dropdown container
+            />
+            <Text style={styles.text}>ID Proof Number</Text>
             <TextInput
-              label="Civil ID"
+              label="ID Proof Number"
               onChangeText={text => setcivilid(text)}
               value={civilid}
-              style={{backgroundColor:'#fff'}}
+              style={{backgroundColor: '#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
             <Text style={styles.text}>Purpose of Visit</Text>
-            <TextInput
-              label="Purpose of Visit"
-              onChangeText={text => setvisit(text)}
-              value={visit}
-              style={{backgroundColor:'#fff'}}
-              mode="outlined"
-              activeOutlineColor={'#3085fe'}
+            <DropDown
+              // label={'Select an option'}
+              mode={'outlined'}
+              value={selectedValue}
+              setValue={setSelectedValue}
+              list={dropdownItems}
+              placeholder='Purpose of Visit'
+              visible={showDropDown}
+              showDropDown={() => setShowDropDown(true)}
+              onDismiss={() => setShowDropDown(false)}
+              theme={{ colors: { primary: '#3085fe', placeholder: '#3085fe', text: '#000' } }}
+              inputProps={{
+                outlineColor: showDropDown ? '#3085fe' : '#000',
+                right: <TextInput.Icon icon="menu-down" color={'#000'} />,
+                style: styles.dropdownInput, // Apply styles here
+              }}
+              dropDownItemStyle={styles.dropdownItem} // Custom style for dropdown items
+              dropDownContainerStyle={styles.dropdownContainer} // Custom style for dropdown container
             />
             <Text style={styles.text}>Person to Meet</Text>
             <TextInput
               label="Person to Meet"
               onChangeText={text => setmeet(text)}
               value={meet}
-              style={{backgroundColor:'#fff'}}
+              style={{backgroundColor: '#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            
+
             <Text style={styles.text}>In Time</Text>
             <TextInput
               label="In Time"
               onChangeText={text => setintime(text)}
               value={intime}
-              style={{backgroundColor:'#fff'}}
+              style={{backgroundColor: '#fff'}}
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
           </View>
-          <View
-            style={styles.subbutton}>
+          <View style={styles.subbutton}>
             <TouchableOpacity
               onPress={() => {
                 //  _vaildate();
@@ -200,7 +248,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '500',
     color: '#000',
-    marginLeft:5,
+    marginLeft: 5,
     marginVertical: 10,
   },
   inputcover: {
@@ -237,5 +285,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginVertical: 50,
+  },
+  dropdownInput: {
+    backgroundColor: '#fff',
+  },
+  dropdownItem: {
+    color:'#fff',
+    backgroundColor: '#3085fe',
+  },
+  dropdownContainer: {
+    backgroundColor: '#fff',
   },
 });

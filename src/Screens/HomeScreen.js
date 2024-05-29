@@ -753,26 +753,28 @@ const HomeScreen = props => {
                       <View
                         style={{
                           flexDirection: 'row',
-                          width: '100%',
-                          margin: 2,
+                          width: 260,
+                          justifyContent:'space-between',
+                          margin: 5,
+                          // borderWidth:1
                         }}>
                         <TouchableOpacity
                           onPress={() => null}
                           style={[
                             styles.subbutton,
-                            {backgroundColor: 'green'},
+                            {backgroundColor: '#00CC00'},
                           ]}>
-                          <Text style={styles.subtext}>Accept</Text>
+                          <Text style={[styles.subtext,{fontSize:14,fontWeight:'500'}]}>Accept</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                           onPress={() => null}
-                          style={[styles.subbutton, {backgroundColor: 'red'}]}>
-                          <Text style={styles.subtext}>Reject</Text>
+                          style={[styles.subbutton, {backgroundColor: '#CC0000'}]}>
+                          <Text style={[styles.subtext,{fontSize:14,fontWeight:'500'}]}>Reject</Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                           onPress={() => null}
                           style={styles.subbutton}>
-                          <Text style={styles.subtext}>Visitor Details</Text>
+                          <Text style={[styles.subtext,{fontSize:14,fontWeight:'500'}]}>Visitor Details</Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -913,6 +915,8 @@ const styles = StyleSheet.create({
     width: '60%',
   },
   flatview: {
+    width:'98%',
+    alignSelf:'center',
     marginTop: 7,
     flexDirection: 'row',
     backgroundColor: '#fff',
