@@ -16,9 +16,9 @@ const InitialScreen = () => {
 
   useEffect(() => {
     SplashScreen.hide();
-    // setTimeout(() => {
+    setTimeout(() => {
     navigation.navigate('Mainscreen');
-    // }, 1000);
+    }, 1000);
   }, []);
   return (
     <SafeAreaView style={styles.container}>

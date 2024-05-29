@@ -14,6 +14,7 @@ import {
   Modal,
   FlatList,
   TextInput,
+  Button
 } from 'react-native';
 import {useNavigation} from '@react-navigation/native';
 import DocumentPicker from 'react-native-document-picker';
@@ -21,15 +22,15 @@ import RNFS from 'react-native-fs';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import countryList from 'react-select-country-list';
 import AppHeader from '../Global/Appheader';
-import LinearGradient from 'react-native-linear-gradient';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 
 export default function EditProfile() {
   const navigation = useNavigation();
   const [modal, setModal] = useState(false);
+  const [modal1, setModal1] = useState(false);
   const [firstname, setfirstname] = useState('');
-  const [mobilenumber, setmobilenumber] = useState('');
+  const [lastname, setlastname] = useState('');
   const [Email, SetEmail] = useState('');
   const [visit, setvisit] = useState('');
   const [meet, setmeet] = useState('');
@@ -133,6 +134,10 @@ export default function EditProfile() {
   // };
   const secureText = () => {
     setEye(!eye);
+  }
+
+  const showDatePicker = () => {
+    setDatePickerVisibility(true);
   };
 
   const hideDatePicker = () => {
@@ -208,12 +213,21 @@ export default function EditProfile() {
               />
             </TouchableOpacity>
           </View>
-          <Text style={styles.text}>Name</Text>
+          <Text style={styles.text}>First Name</Text>
           <TextInput
             onChangeText={text => setfirstname(text)}
             style={styles.input}
             value={firstname}
-            placeholder={'Name'}
+            placeholder={'First Name'}
+            placeholderTextColor={'lightgrey'}
+          />
+          <Text style={styles.text}>Last Name</Text>
+          <TextInput
+            onChangeText={text => setlastname(text)}
+            style={styles.input}
+            value={lastname}
+            placeholder={'Last Name'}
+            placeholderTextColor={'lightgrey'}
           />
           <Text style={styles.text}>Email</Text>
           <TextInput
@@ -221,27 +235,16 @@ export default function EditProfile() {
             style={styles.input}
             value={Email}
             placeholder={'Email ID'}
-          />
-          <Text style={styles.text}>Password</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={text => setvisit(text)}
-            value={visit}
-            placeholder={'Password'}
-            visible={show}
-            secureText={secureText}
-            onPress={() => setshow(!show)}
-            secureTextEntry={show}
+            placeholderTextColor={'lightgrey'}
           />
           <Text style={styles.text}>Date of Birth</Text>
           <TextInput
             style={styles.input}
+            value={comapny}
             onChangeText={text => setcompany(text)}
-            value={meet}
+            placeholderTextColor={'lightgrey'}
             // editable={false}
             date={true}
-            visibles={isDatePickerVisible}
-            onPress={() => setDatePickerVisibility(!isDatePickerVisible)}
             placeholder={'Date of Birth'}
           />
 
@@ -251,8 +254,9 @@ export default function EditProfile() {
             onChangeText={text => setintime(text)}
             value={country}
             placeholder={'Country/Region'}
+            placeholderTextColor={'lightgrey'}
             date={true}
-            onPress={() => setModal(true)}
+            onPressIn={() => setModal(!modal)}
           />
           <View style={styles.subbutton}>
             <TouchableOpacity
@@ -273,12 +277,25 @@ export default function EditProfile() {
         </KeyboardAvoidingView>
       </ScrollView>
 
-      <DateTimePickerModal
-        isVisible={isDatePickerVisible}
-        mode="date"
-        onConfirm={handleConfirm}
-        onCancel={hideDatePicker}
-      />
+      {/* <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modal1}
+        onRequestClose={() => {
+          setModal1(!modal1);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <Button title="Show Date Picker" onPress={showDatePicker} />
+            <DateTimePickerModal
+              isVisible={isDatePickerVisible}
+              mode="date"
+              onConfirm={handleConfirm}
+              onCancel={hideDatePicker}
+            />
+          </View>
+        </View>
+      </Modal> */}
 
       <Modal
         animationType="slide"
@@ -298,65 +315,6 @@ export default function EditProfile() {
               style={{flex: 1}}
               renderItem={({item, index}) => _renderItem(item)}
             />
-
-            {/* <Image
-              resizeMode="contain"
-              style={{height: '35%', width: '40%'}}
-              source={icons.condition}></Image>
-            <Text
-              style={{
-                fontFamily: 'Roboto',
-                fontSize: 20,
-                fontWeight: 'bold',
-                color: '#000',
-                top: 2,
-              }}>
-              Adding Images are mandatory
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'Roboto',
-                fontSize: 13,
-                fontWeight: '200',
-                color: '#000',
-                top: 4,
-              }}>
-              Both Front and Back are in{'\n'}
-            </Text>
-            <Text
-              style={{
-                fontFamily: 'Roboto',
-                fontSize: 12,
-                fontWeight: '200',
-                color: '#000',
-                bottom: 10,
-              }}>
-              types of PDF, JPG, and PNG.
-            </Text> */}
-
-            <TouchableOpacity
-              style={{
-                top: 10,
-                height: (Height / 80) * 3.5,
-                width: (Width / 80) * 9,
-                borderColor: '#357AB4',
-                borderRadius: 6,
-                borderWidth: 1,
-                justifyContent: 'center',
-                backgroundColor: '#357AB4',
-              }}
-              onPress={() => setModal(false)}>
-              <Text
-                style={{
-                  fontFamily: 'Roboto',
-                  fontSize: 12,
-                  fontWeight: 'bold',
-                  color: '#fff',
-                  textAlign: 'center',
-                }}>
-                OK
-              </Text>
-            </TouchableOpacity>
           </View>
         </View>
       </Modal>
@@ -397,13 +355,13 @@ const styles = StyleSheet.create({
     height: (Height / 42) * 6,
     borderRadius: Width / 2,
     borderColor: '#3085fe',
-    borderWidth: 1,
+    // borderWidth: 1,
     backgroundColor: 'grey',
   },
   cameras: {
     width: 25,
     height: 22,
-    tintColor:'#3085fe',
+    tintColor: '#3085fe',
     // backgroundColor: '#fff',
     top: 50,
     right: 25,
@@ -449,6 +407,8 @@ const styles = StyleSheet.create({
     width: (Width / 10) * 8,
     borderRadius: 30,
     padding: 15,
+    borderWidth: 0.5,
+    borderColor: '#3085fe',
     alignItems: 'center',
     shadowColor: '#000',
     shadowOffset: {
@@ -461,5 +421,6 @@ const styles = StyleSheet.create({
     width: '95%',
     alignSelf: 'center',
     borderRadius: 10,
+    color: '#3085fe',
   },
 });

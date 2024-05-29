@@ -162,16 +162,6 @@ export default function Register() {
           </TouchableOpacity>
         </View>
         <View style={{margin: 10, borderWidth: 0}}>
-          <Text
-            style={{
-              fontSize: 15,
-              fontWeight: '500',
-              color: 'grey',
-              // marginTop: 10,
-              textAlign: 'center',
-            }}>
-            Or continue with social account
-          </Text>
           <TouchableOpacity
             style={{
               height: 50,
@@ -189,8 +179,8 @@ export default function Register() {
               source={require('../Assets/google.png')}
               style={{height: 25, width: 25, marginRight: 10}}
             />
-            <Text style={{fontSize: 17, fontWeight: 'bold', color: '#000'}}>
-              Google
+            <Text style={{fontSize: 15, fontWeight: '500', color: '#000'}}>
+            Continue With Google
             </Text>
           </TouchableOpacity>
           <View

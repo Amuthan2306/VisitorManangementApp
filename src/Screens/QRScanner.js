@@ -84,7 +84,7 @@ export default function QRScanner() {
           cameraStyle={[{height: 300}]}
           showMarker={true}
           bottomContent={
-            <Text style={styles.text}>Scanned QR Code: {register}</Text>
+            <Text style={styles.text}>Scanning QR code: {register}</Text>
           }
           reactivate={activateQR}
         />

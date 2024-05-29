@@ -15,7 +15,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient';
 import {Spinner} from '../components/Spinner';
 import AppHeader from '../Global/Appheader';
 export default function VisitorDetailsScreen() {
@@ -71,12 +70,12 @@ export default function VisitorDetailsScreen() {
             onChangeText={text => setfirstname(text)}
             value={names}
             style={styles.input}
-            placeholder={'Name'}
+            // placeholder={'Name'}
             editable={false}
           />
           <Text style={styles.text}>Email</Text>
             <TextInput
-              placeholder={"Email"}
+              // placeholder={"Email"}
               value={email}
               style={styles.input}
               onChangeText={text => setEmail(text)}
@@ -88,23 +87,23 @@ export default function VisitorDetailsScreen() {
             style={styles.input}
             onChangeText={text => setcivilid(text)}
             value={names?.civilid}
-            placeholder={'Civil ID'}
+            // placeholder={'Civil ID'}
             editable={false}
           />
-          <Text style={styles.text}>Purpose Of Visit</Text>
+          <Text style={styles.text}>Purpose of Visit</Text>
           <TextInput
             style={styles.input}
             onChangeText={text => setvisit(text)}
             value={names?.visit}
-            placeholder={'Purpose Of Visit'}
+            // placeholder={'Purpose of Visit'}
             editable={false}
           />
-          <Text style={styles.text}>Person To Meet</Text>
+          <Text style={styles.text}>Person to Meet</Text>
           <TextInput
             style={styles.input}
             onChangeText={text => setmeet(text)}
             value={names?.meet}
-            placeholder={'Person To Meet'}
+            // placeholder={'Person to Meet'}
             editable={false}
           />
           <Text style={styles.text}>Company Name</Text>
@@ -112,7 +111,7 @@ export default function VisitorDetailsScreen() {
             style={styles.input}
             onChangeText={text => setcompany(text)}
             value={names?.comapny}
-            placeholder={'Company Name'}
+            // placeholder={'Company Name'}
             editable={false}
           />
           <Text style={styles.text}>In Time</Text>
@@ -120,7 +119,7 @@ export default function VisitorDetailsScreen() {
             style={styles.input}
             onChangeText={text => setintime(text)}
             value={names?.intime}
-            placeholder={'In Time'}
+            // placeholder={'In Time'}
             editable={false}
           />
           {/* <Text style={styles.text}>Visited Date</Text>

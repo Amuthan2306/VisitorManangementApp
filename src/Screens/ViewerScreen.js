@@ -15,7 +15,6 @@ import {Backbutton} from '../components/headerbackbutton';
 import {useNavigation} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import AppHeader from '../Global/Appheader';
-import LinearGradient from 'react-native-linear-gradient';
 import {Spinner} from '../components/Spinner';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;

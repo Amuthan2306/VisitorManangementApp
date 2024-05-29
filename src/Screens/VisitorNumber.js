@@ -38,7 +38,7 @@ export default function VisitorNumber() {
             flex: 1,
             backgroundColor: '#fff',
             borderRadius: 30,
-            borderWidth: 15,
+            borderWidth: 10,
             borderColor: '#3085fe',
           }}>
           <View

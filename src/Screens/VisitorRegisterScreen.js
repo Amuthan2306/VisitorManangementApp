@@ -16,7 +16,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
-import LinearGradient from 'react-native-linear-gradient';
 import AppHeader from '../Global/Appheader';
 export default function VisitorRegisterScreen() {
   const navigation = useNavigation();
@@ -128,6 +127,15 @@ export default function VisitorRegisterScreen() {
               onChangeText={text => setEmail(text)}
               activeOutlineColor={'#3085fe'}
             />
+            <Text style={styles.text}>Company Name</Text>
+            <TextInput
+              label="Company Name"
+              onChangeText={text => setcompany(text)}
+              value={comapny}
+              style={{backgroundColor:'#fff'}}
+              mode="outlined"
+              activeOutlineColor={'#3085fe'}
+            />
             <Text style={styles.text}>Civil ID</Text>
             <TextInput
               label="Civil ID"
@@ -155,15 +163,7 @@ export default function VisitorRegisterScreen() {
               mode="outlined"
               activeOutlineColor={'#3085fe'}
             />
-            <Text style={styles.text}>Company Name</Text>
-            <TextInput
-              label="Company Name"
-              onChangeText={text => setcompany(text)}
-              value={comapny}
-              style={{backgroundColor:'#fff'}}
-              mode="outlined"
-              activeOutlineColor={'#3085fe'}
-            />
+            
             <Text style={styles.text}>In Time</Text>
             <TextInput
               label="In Time"

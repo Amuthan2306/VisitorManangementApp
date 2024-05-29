@@ -72,13 +72,13 @@ export default function LoginScreen() {
           </TouchableOpacity>
         </View>
         <View style={styles.socialContainer}>
-          <Text style={styles.socialText}>Or continue with social account</Text>
+          {/* <Text style={styles.socialText}>Or continue with social account</Text> */}
           <TouchableOpacity style={styles.socialButton}>
             <Image
               source={require('../Assets/google.png')}
               style={styles.socialIcon}
             />
-            <Text style={styles.socialButtonText}>Google</Text>
+            <Text style={styles.socialButtonText}>Continue With Google</Text>
           </TouchableOpacity>
           <View style={styles.registerContainer}>
             <Text style={styles.registerText}>Don't have an account?</Text>
@@ -166,6 +166,7 @@ const styles = StyleSheet.create({
     height: 50,
     width:'95%',
     borderRadius: 10,
+    marginTop:20,
     borderWidth: 0.5,
     borderColor: '#000',
     alignSelf:'center',
@@ -179,8 +180,8 @@ const styles = StyleSheet.create({
     marginRight: 10,
   },
   socialButtonText: {
-    fontSize: 17,
-    fontWeight: 'bold',
+    fontSize: 15,
+    fontWeight: '500',
     color: '#000',
   },
   registerContainer: {

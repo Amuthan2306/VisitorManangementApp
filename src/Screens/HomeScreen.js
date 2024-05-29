@@ -14,7 +14,6 @@ import {
   SafeAreaView,
 } from 'react-native';
 import Lottie from 'lottie-react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import Ionicon from 'react-native-vector-icons/Ionicons';
 import Calender from 'react-native-vector-icons/AntDesign';
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -284,7 +283,7 @@ const HomeScreen = props => {
             {demo === 'Admin'
               ? 'Building Admin'
               : demo === 'SuperAdmin'
-              ? 'SuperAdmin'
+              ? 'Super Admin'
               : demo === 'Security'
               ? 'Security'
               : null}
@@ -346,7 +345,7 @@ const HomeScreen = props => {
                   </Text>
                 </View>
                 <View style={styles.numofvisit3}>
-                  <Text style={styles.numtext}>In Active Visitors</Text>
+                  <Text style={styles.numtext}>Inactive Visitors</Text>
                   <Text style={[styles.numtext2, {color: 'red'}]}>2</Text>
                 </View>
               </View>
@@ -583,7 +582,7 @@ const HomeScreen = props => {
                             />
                             <Text style={styles.textStyle}>{item.status}</Text>
                           </View>
-                          <Text>{item.validity}</Text>
+                          {/* <Text>{item.validity}</Text> */}
                         </View>
                         <View style={{flex: 0.2, justifyContent: 'center'}}>
                           <View style={[styles.subbutton, {width: '100%'}]}>
@@ -710,7 +709,7 @@ const HomeScreen = props => {
                 </View>
                 <View style={styles.timedateview}>
                   <Text style={styles.time_date}>
-                    Date: {''}
+                    Date {''}: {''}
                     {dateTime.toLocaleDateString('en-US', {
                       timeZone: 'Asia/Kolkata',
                     })}

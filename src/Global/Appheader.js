@@ -1,6 +1,5 @@
 import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 import React from 'react';
-import LinearGradient from 'react-native-linear-gradient';
 import Arrow from 'react-native-vector-icons/AntDesign';
 import {useNavigation} from '@react-navigation/native';
 

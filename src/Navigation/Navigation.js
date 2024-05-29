@@ -24,7 +24,6 @@ import VerifyCode from '../Screens/Forgot/VerifyCode';
 import NewPassword from '../Screens/Forgot/NewPassword';
 import HomeScreen from '../Screens/HomeScreen';
 import DocumentPicker from 'react-native-document-picker';
-import LinearGradient from 'react-native-linear-gradient';
 import RNFS from 'react-native-fs';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import QRScanner from '../Screens/QRScanner';
