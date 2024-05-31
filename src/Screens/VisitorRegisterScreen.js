@@ -123,7 +123,9 @@ export default function VisitorRegisterScreen() {
             <Text style={styles.text}>Name</Text>
             <TextInput
               label="Name"
-              selectionColor='#3085fe'
+              selectionColor="#3085fe"
+              textColor="#000"
+              theme={{colors: {onSurfaceVariant: 'lightgrey'}}}
               value={firstname}
               style={{backgroundColor: '#fff'}}
               mode="outlined"
@@ -140,6 +142,8 @@ export default function VisitorRegisterScreen() {
             <TextInput
               label="Email"
               value={email}
+              textColor="#000"
+              theme={{colors: {onSurfaceVariant: 'lightgrey'}}}
               style={{backgroundColor: '#fff'}}
               mode="outlined"
               onChangeText={text => setEmail(text)}
@@ -148,6 +152,8 @@ export default function VisitorRegisterScreen() {
             <Text style={styles.text}>Company Name</Text>
             <TextInput
               label="Company Name"
+              textColor="#000"
+              theme={{colors: {onSurfaceVariant: 'lightgrey'}}}
               onChangeText={text => setcompany(text)}
               value={comapny}
               style={{backgroundColor: '#fff'}}
@@ -161,23 +167,33 @@ export default function VisitorRegisterScreen() {
               value={selectedValue1}
               setValue={setSelectedValue1}
               list={dropdownItems1}
-              placeholder='ID Proof'
+              dropDownItemTextStyle="#fff"
+              dropDownItemSelectedStyle={{backgroundColor:'#fff'}}
+              placeholder="ID Proof"
               visible={showDropDown1}
               showDropDown={() => setShowDropDown1(true)}
               onDismiss={() => setShowDropDown1(false)}
-              theme={{ colors: { primary: '#3085fe', placeholder: '#3085fe', text: '#000' } }}
+              theme={{
+                colors: {
+                  primary: '#3085fe',
+                  placeholder: '#3085fe',
+                },
+              }}
               inputProps={{
                 outlineColor: showDropDown1 ? '#3085fe' : '#000',
                 right: <TextInput.Icon icon="menu-down" color={'#000'} />,
-                style: styles.dropdownInput, // Apply styles here
+                style: styles.dropdownInput,
+                textColor:'#000', // Apply styles here
+                placeholderTextColor:'lightgrey'
               }}
               dropDownItemStyle={styles.dropdownItem} // Custom style for dropdown items
-              dropDownContainerStyle={styles.dropdownContainer} // Custom style for dropdown container
             />
             <Text style={styles.text}>ID Proof Number</Text>
             <TextInput
               label="ID Proof Number"
               onChangeText={text => setcivilid(text)}
+              textColor="#000"
+              theme={{colors: {onSurfaceVariant: 'lightgrey'}}}
               value={civilid}
               style={{backgroundColor: '#fff'}}
               mode="outlined"
@@ -190,23 +206,33 @@ export default function VisitorRegisterScreen() {
               value={selectedValue}
               setValue={setSelectedValue}
               list={dropdownItems}
-              placeholder='Purpose of Visit'
+              placeholder="Purpose of Visit"
+              dropDownItemTextStyle="#fff"
+              dropDownItemSelectedStyle={{backgroundColor:'#fff'}}
               visible={showDropDown}
               showDropDown={() => setShowDropDown(true)}
               onDismiss={() => setShowDropDown(false)}
-              theme={{ colors: { primary: '#3085fe', placeholder: '#3085fe', text: '#000' } }}
+              theme={{
+                colors: {
+                  primary: '#3085fe',
+                  placeholder: '#3085fe',
+                },
+              }}
               inputProps={{
                 outlineColor: showDropDown ? '#3085fe' : '#000',
                 right: <TextInput.Icon icon="menu-down" color={'#000'} />,
                 style: styles.dropdownInput, // Apply styles here
+                textColor:'#000',
+                placeholderTextColor:'lightgrey'
               }}
               dropDownItemStyle={styles.dropdownItem} // Custom style for dropdown items
-              dropDownContainerStyle={styles.dropdownContainer} // Custom style for dropdown container
             />
             <Text style={styles.text}>Person to Meet</Text>
             <TextInput
               label="Person to Meet"
               onChangeText={text => setmeet(text)}
+              textColor="#000"
+              theme={{colors: {onSurfaceVariant: 'lightgrey'}}}
               value={meet}
               style={{backgroundColor: '#fff'}}
               mode="outlined"
@@ -217,6 +243,8 @@ export default function VisitorRegisterScreen() {
             <TextInput
               label="In Time"
               onChangeText={text => setintime(text)}
+              textColor="#000"
+              theme={{colors: {onSurfaceVariant: 'lightgrey'}}}
               value={intime}
               style={{backgroundColor: '#fff'}}
               mode="outlined"
@@ -287,10 +315,15 @@ const styles = StyleSheet.create({
     marginVertical: 50,
   },
   dropdownInput: {
+    height:50,
+    borderRadius:10,
+    width: '100%',
+    alignSelf: 'center',
+    color:'lightgrey',
     backgroundColor: '#fff',
   },
   dropdownItem: {
-    color:'#fff',
+    color: '#fff',
     backgroundColor: '#3085fe',
   },
   dropdownContainer: {

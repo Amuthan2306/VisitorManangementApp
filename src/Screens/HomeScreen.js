@@ -39,6 +39,8 @@ const HomeScreen = props => {
   const [spin, setPin] = useState(true);
   const [dateTime, setDateTime] = useState(new Date());
   const [selected, setSelected] = useState('');
+  const [press, setpress] = useState(false);
+
 
   var retrieveData = async () => {
     try {
@@ -746,14 +748,20 @@ const HomeScreen = props => {
                       />
                     </View>
                     <View style={styles.nameview}>
+                      <View style={{flexDirection:'row',borderWidth:0,width:265,justifyContent:'space-between'}}>
                       <Text style={styles.namestyle}>
                         {item.Name}
                         <Text style={styles.nametext}>{item.NameText}</Text>
                       </Text>
-                      <View
+                      <TouchableOpacity onPress={() => null} style={{height:20,width:20,borderWidth:0,justifyContent:'center',borderRadius:20,backgroundColor:'#3085fe'}}>
+                      <Text style={{fontSize:12,fontWeight:'bold',color:'#fff',textAlign:'center',}}>!</Text>
+                      </TouchableOpacity>
+                      </View>
+                     <View
                         style={{
                           flexDirection: 'row',
-                          width: 260,
+                          width: 250,
+                          // alignSelf:'center',
                           justifyContent:'space-between',
                           margin: 5,
                           // borderWidth:1
@@ -770,11 +778,6 @@ const HomeScreen = props => {
                           onPress={() => null}
                           style={[styles.subbutton, {backgroundColor: '#CC0000'}]}>
                           <Text style={[styles.subtext,{fontSize:14,fontWeight:'500'}]}>Reject</Text>
-                        </TouchableOpacity>
-                        <TouchableOpacity
-                          onPress={() => null}
-                          style={styles.subbutton}>
-                          <Text style={[styles.subtext,{fontSize:14,fontWeight:'500'}]}>Visitor Details</Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -865,9 +868,9 @@ const styles = StyleSheet.create({
     color: '#fff',
   },
   subbutton: {
-    // height: 40,
+    height: 40,
     margin: 5,
-    width: '26%',
+    width: '36%',
     backgroundColor: '#3085fe',
     borderRadius: 10,
     justifyContent: 'center',

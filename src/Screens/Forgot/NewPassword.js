@@ -51,7 +51,10 @@ export default function NewPassword() {
           <TextInput
             label="Enter Password"
             secureTextEntry={!showPassword}
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             mode="outlined"
+            style={{backgroundColor:'#Fff',}}
             value={Password}
             onChangeText={text => setPassword(text)}
             right={
@@ -66,6 +69,9 @@ export default function NewPassword() {
           <TextInput
             label="Re-Enter Password"
             secureTextEntry={!showeyePassword1}
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
+            style={{backgroundColor:'#Fff',}}
             mode="outlined"
             value={confirmpassword}
             onChangeText={text => setconfirmPassword(text)}

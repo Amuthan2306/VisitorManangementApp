@@ -33,7 +33,7 @@ import UploadCamera from '../Screens/UploadCamera';
 import VisitorDetailsScreen from '../Screens/VisitorDetailsScreen';
 import ViewerScreen from '../Screens/ViewerScreen';
 import VisitorNumber from '../Screens/VisitorNumber';
-import EditProfile from '../Screens/EditProfile'
+import EditProfile from '../Screens/EditProfile';
 import ViewReport from '../Screens/ViewReport';
 import {
   createDrawerNavigator,
@@ -374,6 +374,7 @@ const MyDrawer = () => {
       drawerContent={props => <DrawerContents {...props} />}
       screenOptions={{
         headerShown: false,
+        drawerActiveBackgroundColor:'#fff',
         drawerContentContainerStyle: {
           height: 500,
           width: 230,

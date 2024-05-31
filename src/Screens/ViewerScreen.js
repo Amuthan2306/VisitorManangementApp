@@ -103,8 +103,8 @@ export default function ViewerScreen() {
         <View
           style={{
             borderRadius: 10,
-            borderWidth: 1,
-            borderColor: '#411350',
+            borderWidth: 0.5,
+            // borderColor: '#411350',
             height: '40%',
             width: '90%',
             justifyContent: 'center',
@@ -119,8 +119,8 @@ export default function ViewerScreen() {
         <View
           style={{
             borderRadius: 10,
-            borderWidth: 1,
-            borderColor: '#000',
+            borderWidth: 0.5,
+            // borderColor: '#000',
             height: '40%',
             width: '90%',
             justifyContent: 'center',

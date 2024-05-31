@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     width: 50,
     borderRadius: 10,
     borderColor: '#3085fe',
-    color: '#3085fe',
+    color: '#000',
     borderWidth: 1,
     textAlign: 'center',
     fontSize: 24,

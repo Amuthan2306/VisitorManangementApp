@@ -43,6 +43,8 @@ export default function LoginScreen() {
             label="Email"
             value={email}
             mode="outlined"
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             onChangeText={text => setEmail(text)}
             style={styles.input}
             activeOutlineColor={'#3085fe'}
@@ -50,6 +52,8 @@ export default function LoginScreen() {
           <TextInput
             label="Password"
             secureTextEntry={!showPassword}
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             mode="outlined"
             value={password}
             onChangeText={text => setPassword(text)}
@@ -82,7 +86,7 @@ export default function LoginScreen() {
           </TouchableOpacity>
           <View style={styles.registerContainer}>
             <Text style={styles.registerText}>Don't have an account?</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+            <TouchableOpacity onPress={() => navigation.navigate('VisitorRegisterScreen')}>
               <Text style={styles.registerLink}>Register</Text>
             </TouchableOpacity>
           </View>
@@ -132,6 +136,7 @@ const styles = StyleSheet.create({
   },
   input: {
     backgroundColor: '#fff',
+    color:'red',
   },
   forgotPassword: {
     fontSize: 15,

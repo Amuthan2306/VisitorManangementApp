@@ -74,6 +74,8 @@ export default function Register() {
           <TextInput
             label="First Name"
             // placeholder="Email"
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             value={firstname}
             style={styles.input}
             mode="outlined"
@@ -82,6 +84,8 @@ export default function Register() {
           />
           <TextInput
             label="Last Name"
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             // placeholder="Email"
             style={styles.input}
             value={lastname}
@@ -91,6 +95,8 @@ export default function Register() {
           />
           <TextInput
             label="Email"
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             // placeholder="Email"
             style={styles.input}
             value={email}
@@ -100,6 +106,8 @@ export default function Register() {
           />
           <TextInput
             label="Password"
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             secureTextEntry={!showPassword}
             style={styles.input}
             mode="outlined"
@@ -116,6 +124,8 @@ export default function Register() {
           />
           <TextInput
             label="Confirm Password"
+            textColor="#000"
+            theme={{colors: {onSurfaceVariant: 'lightgrey', },}}
             secureTextEntry={!showeyePassword1}
             style={styles.input}
             mode="outlined"
@@ -130,7 +140,13 @@ export default function Register() {
             }
             activeOutlineColor={'#3085fe'}
           />
-          <View style={{flexDirection: 'row', borderWidth: 0,width:'96%',marginLeft:2.5}}>
+          <View
+            style={{
+              flexDirection: 'row',
+              borderWidth: 0,
+              width: '96%',
+              marginLeft: 2.5,
+            }}>
             <Checkbox.Android
               status={isChecked ? 'checked' : 'unchecked'}
               onPress={() => setIsChecked(!isChecked)}
@@ -142,8 +158,8 @@ export default function Register() {
               <Text style={{fontSize: 15, fontWeight: '500', color: '#3085fe'}}>
                 {' '}
                 terms & conditions & privacy {'\n'}policy
-              </Text>
-             {" "}set out by this site
+              </Text>{' '}
+              set out by this site
             </Text>
           </View>
           <TouchableOpacity
@@ -180,7 +196,7 @@ export default function Register() {
               style={{height: 25, width: 25, marginRight: 10}}
             />
             <Text style={{fontSize: 15, fontWeight: '500', color: '#000'}}>
-            Continue With Google
+              Continue With Google
             </Text>
           </TouchableOpacity>
           <View
@@ -231,8 +247,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     justifyContent: 'center',
   },
-  input:{
-    width:'95%',
-    alignSelf:'center'
-  }
+  input: {
+    width: '95%',
+    alignSelf: 'center',
+    backgroundColor:'#fff',
+    color:'#000'
+  },
 });

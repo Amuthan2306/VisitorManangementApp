@@ -23,6 +23,7 @@ export default function VisitorDetailsScreen() {
   const [names, setName] = useState('');
   const [mobilenumber, setmobilenumber] = useState('');
   const [civilid, setcivilid] = useState('');
+  const [civilid1, setcivilid1] = useState('');
   const [visit, setvisit] = useState('');
   const [meet, setmeet] = useState('');
   const [comapny, setcompany] = useState('');
@@ -74,20 +75,36 @@ export default function VisitorDetailsScreen() {
             editable={false}
           />
           <Text style={styles.text}>Email</Text>
-            <TextInput
-              // placeholder={"Email"}
-              value={email}
-              style={styles.input}
-              onChangeText={text => setEmail(text)}
-              editable={false}
-            />
-         
-          <Text style={styles.text}>Civil ID</Text>
+          <TextInput
+            // placeholder={"Email"}
+            value={email}
+            style={styles.input}
+            onChangeText={text => setEmail(text)}
+            editable={false}
+          />
+          <Text style={styles.text}>Company Name</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={text => setcompany(text)}
+            value={names?.comapny}
+            // placeholder={'Company Name'}
+            editable={false}
+          />
+
+          <Text style={styles.text}>ID Proof</Text>
           <TextInput
             style={styles.input}
             onChangeText={text => setcivilid(text)}
             value={names?.civilid}
-            // placeholder={'Civil ID'}
+            // placeholder={'ID Proof'}
+            editable={false}
+          />
+          <Text style={styles.text}>ID Proof Number</Text>
+          <TextInput
+            style={styles.input}
+            onChangeText={text => setcivilid1(text)}
+            value={names?.civilid1}
+            // placeholder={'ID ProofNumber'}
             editable={false}
           />
           <Text style={styles.text}>Purpose of Visit</Text>
@@ -106,20 +123,13 @@ export default function VisitorDetailsScreen() {
             // placeholder={'Person to Meet'}
             editable={false}
           />
-          <Text style={styles.text}>Company Name</Text>
-          <TextInput
-            style={styles.input}
-            onChangeText={text => setcompany(text)}
-            value={names?.comapny}
-            // placeholder={'Company Name'}
-            editable={false}
-          />
+
           <Text style={styles.text}>In Time</Text>
           <TextInput
             style={styles.input}
             onChangeText={text => setintime(text)}
             value={names?.intime}
-            // placeholder={'In Time'}
+            placeholder={'In Time'}
             editable={false}
           />
           {/* <Text style={styles.text}>Visited Date</Text>
@@ -129,8 +139,7 @@ export default function VisitorDetailsScreen() {
             value={names?.date}
             placeholder={'Visited Date'}
           /> */}
-          <View
-            style={styles.subbutton}>
+          <View style={styles.subbutton}>
             <TouchableOpacity
               onPress={() => {
                 navigation.navigate('ViewerScreen');
@@ -197,7 +206,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     borderWidth: 0.5,
-    borderColor: '#3085fe',
+    // borderColor: '#3085fe',
     // marginTop:10
   },
 });
