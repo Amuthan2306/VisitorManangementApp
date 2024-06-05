@@ -129,7 +129,7 @@ export default function VisitorDetailsScreen() {
             style={styles.input}
             onChangeText={text => setintime(text)}
             value={names?.intime}
-            placeholder={'In Time'}
+            // placeholder={'In Time'}
             editable={false}
           />
           {/* <Text style={styles.text}>Visited Date</Text>

@@ -35,6 +35,9 @@ import ViewerScreen from '../Screens/ViewerScreen';
 import VisitorNumber from '../Screens/VisitorNumber';
 import EditProfile from '../Screens/EditProfile';
 import ViewReport from '../Screens/ViewReport';
+import Profile from '../Screens/Profile';
+import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -43,6 +46,7 @@ import {
 } from '@react-navigation/drawer';
 const Stack = createNativeStackNavigator();
 const Drawer = createDrawerNavigator();
+const Tab = createMaterialBottomTabNavigator();
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 
@@ -374,7 +378,7 @@ const MyDrawer = () => {
       drawerContent={props => <DrawerContents {...props} />}
       screenOptions={{
         headerShown: false,
-        drawerActiveBackgroundColor:'#fff',
+        drawerActiveBackgroundColor: '#fff',
         drawerContentContainerStyle: {
           height: 500,
           width: 230,
@@ -395,6 +399,67 @@ const MyDrawer = () => {
   );
 };
 
+const MyTabs = () => {
+  return (
+    <Tab.Navigator
+      initialRouteName="HomeScreen"
+      activeColor="#3085fe"
+      inactiveColor="grey"
+      barStyle={{backgroundColor: "#fff"}}>
+      <Tab.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          tabBarLabel: 'Home',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="home" color={color} size={26} />
+          ),
+        }}
+      />
+      {/* <Tab.Screen
+        name="AttachFile"
+        component={AttachFile}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          ),
+        }}
+      />
+       <Tab.Screen
+        name="VisitorDetailsScreen"
+        component={VisitorDetailsScreen}
+        options={{
+          tabBarLabel: 'Updates',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="bell" color={color} size={26} />
+          ),
+        }}
+      /> */}
+       <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }}
+      />
+      {/* <Tab.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color}) => (
+            <MaterialCommunityIcons name="account" color={color} size={26} />
+          ),
+        }}
+      /> */}
+    </Tab.Navigator>
+  );
+};
+
 function NavigationComponents() {
   return (
     <NavigationContainer>
@@ -408,7 +473,7 @@ function NavigationComponents() {
         <Stack.Screen name="ForgotPassword" component={ForgotPassword} />
         <Stack.Screen name="VerifyCode" component={VerifyCode} />
         <Stack.Screen name="NewPassword" component={NewPassword} />
-        <Stack.Screen name="HomeScreen" component={MyDrawer} />
+        <Stack.Screen name="HomeScreen" component={MyTabs} />
         <Stack.Screen name="QRScanner" component={QRScanner} />
         <Stack.Screen name="AttachFile" component={AttachFile} />
         <Stack.Screen name="UploadCamera" component={UploadCamera} />

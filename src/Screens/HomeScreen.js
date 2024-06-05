@@ -275,10 +275,10 @@ const HomeScreen = props => {
             justifyContent: 'space-between',
             height: 70,
           }}>
-          <TouchableOpacity style={{}} onPress={() => navigation.openDrawer()}>
+          <TouchableOpacity style={{}} onPress={() => navigation.goBack()}>
             <Image
-              source={require('../Assets/menu.png')}
-              style={{height: 30, width: 30, marginLeft: 12}}
+              source={require('../Assets/back.png')}
+              style={{height: 30, width: 30, marginLeft: 12,tintColor:'#fff'}}
             />
           </TouchableOpacity>
           <Text style={styles.titleText}>
