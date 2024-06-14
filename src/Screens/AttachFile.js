@@ -11,7 +11,7 @@ import React, {useEffect, useState} from 'react';
 import {Backbutton} from '../components/headerbackbutton';
 import {useNavigation, useIsFocused} from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import AppHeader from '../Global/Appheader';
+import AppHeader from '../global/Appheader';
 import {Spinner} from '../components/Spinner';
 export default function AttachFile() {
   const navigation = useNavigation();

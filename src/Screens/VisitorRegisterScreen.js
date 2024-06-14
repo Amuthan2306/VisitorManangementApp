@@ -16,7 +16,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
-import AppHeader from '../Global/Appheader';
+import AppHeader from '../global/Appheader';
 import DropDown from 'react-native-paper-dropdown';
 export default function VisitorRegisterScreen() {
   const navigation = useNavigation();
@@ -36,52 +36,58 @@ export default function VisitorRegisterScreen() {
     setmobilenumber(phoneNumber);
   };
 
-  // const _vaildate = () => {
-  //   if (global.functions.isNullOrEmpty(firstname)) {
-  //     global.functions.ShowAlert(
-  //       'Please Enter Your Name',
-  //       global.const.warning,
-  //     );
-  //   } else if (global.functions.isNullOrEmpty(mobilenumber)) {
-  //     global.functions.ShowAlert(
-  //       'Please Enter mobilenumber',
-  //       global.const.warning,
-  //     );
-  //   } else if (global.functions.isNullOrEmpty(civilid)) {
-  //     global.functions.ShowAlert('Please Enter civilid', global.const.warning);
-  //   } else if (global.functions.isNullOrEmpty(visit)) {
-  //     global.functions.ShowAlert(
-  //       'Please Enter Purpose Of Visit',
-  //       global.const.warning,
-  //     );
-  //   } else if (global.functions.isNullOrEmpty(meet)) {
-  //     global.functions.ShowAlert(
-  //       'Please Enter Person Of Meet',
-  //       global.const.warning,
-  //     );
-  //   } else if (global.functions.isNullOrEmpty(comapny)) {
-  //     global.functions.ShowAlert(
-  //       'Please Enter Company Name',
-  //       global.const.warning,
-  //     );
-  //   } else if (global.functions.isNullOrEmpty(intime)) {
-  //     global.functions.ShowAlert('Please Enter In Time', global.const.warning);
-  //   } else {
-  //     const store = {
-  //       firstname: firstname,
-  //       mobilenumber: mobilenumber,
-  //       civilid: civilid,
-  //       visit: visit,
-  //       meet: meet,
-  //       comapny: comapny,
-  //       intime: intime,
-  //     };
+  const _vaildate = () => {
+    if (global.functions.isNullOrEmpty(firstname)) {
+      global.functions.ShowAlert(
+        'Please Enter Your Name',
+        global.const.warning,
+      );
+    } else if (global.functions.isNullOrEmpty(email)) {
+      global.functions.ShowAlert('Please Enter email', global.const.warning);
+    } else if (global.functions.isNullOrEmpty(comapny)) {
+      global.functions.ShowAlert(
+        'Please Enter company name',
+        global.const.warning,
+      );
+    } else if (global.functions.isNullOrEmpty(selectedValue1)) {
+      global.functions.ShowAlert(
+        'Please Choose Id Proof',
+        global.const.warning,
+      );
+    } else if (global.functions.isNullOrEmpty(civilid)) {
+      global.functions.ShowAlert(
+        'Please Enter Id Proof Number',
+        global.const.warning,
+      );
+    } else if (global.functions.isNullOrEmpty(selectedValue)) {
+      global.functions.ShowAlert(
+        'Please Enter Purpose Of Visit',
+        global.const.warning,
+      );
+    } else if (global.functions.isNullOrEmpty(meet)) {
+      global.functions.ShowAlert(
+        'Please Enter Person To Meet',
+        global.const.warning,
+      );
+    } else if (global.functions.isNullOrEmpty(intime)) {
+      global.functions.ShowAlert('Please Enter In Time', global.const.warning);
+    } else {
+      const store = {
+        firstname: firstname,
+        email: email,
+        comapny: comapny,
+        selectedValue1: selectedValue1,
+        civilid: civilid,
+        selectedValue: selectedValue,
+        meet: meet,
+        intime: intime,
+      };
 
-  //     AsyncStorage.setItem('user', JSON.stringify(store));
-  //     console.log('store==>', store);
-  //     navigation.navigate('UploadCamera');
-  //   }
-  // };
+      AsyncStorage.setItem('user', JSON.stringify(store));
+      console.log('store==>', store);
+      navigation.navigate('VisitorDetailsScreen');
+    }
+  };
   const [spin, setPin] = useState(true);
 
   // useEffect(() => {
@@ -96,16 +102,16 @@ export default function VisitorRegisterScreen() {
   const [selectedValue1, setSelectedValue1] = useState('');
 
   const dropdownItems = [
-    {label: 'Meeting', value: 'option1'},
-    {label: 'Interview', value: 'option2'},
-    {label: 'Client visit', value: 'option3'},
-    {label: 'Others', value: 'option4'},
+    {label: 'Meeting', value: 'Meeting'},
+    {label: 'Interview', value: 'Interview'},
+    {label: 'Client visit', value: 'Client visit'},
+    {label: 'Others', value: 'Others'},
   ];
   const dropdownItems1 = [
-    {label: 'Aadhar Card', value: 'option1'},
-    {label: 'Voter Card', value: 'option2'},
-    {label: 'Pan Card', value: 'option3'},
-    {label: 'Driving Licence', value: 'option4'},
+    {label: 'Aadhar Card', value: 'Aadhar Card'},
+    {label: 'Voter Card', value: 'Voter Card'},
+    {label: 'Pan Card', value: 'Pan Card'},
+    {label: 'Driving Licence', value: 'Driving Licence'},
   ];
 
   return (
@@ -168,7 +174,7 @@ export default function VisitorRegisterScreen() {
               setValue={setSelectedValue1}
               list={dropdownItems1}
               dropDownItemTextStyle="#fff"
-              dropDownItemSelectedStyle={{backgroundColor:'#fff'}}
+              dropDownItemSelectedStyle={{backgroundColor: '#fff'}}
               placeholder="ID Proof"
               visible={showDropDown1}
               showDropDown={() => setShowDropDown1(true)}
@@ -183,8 +189,8 @@ export default function VisitorRegisterScreen() {
                 outlineColor: showDropDown1 ? '#3085fe' : '#000',
                 right: <TextInput.Icon icon="menu-down" color={'#000'} />,
                 style: styles.dropdownInput,
-                textColor:'#000', // Apply styles here
-                placeholderTextColor:'lightgrey'
+                textColor: '#000', // Apply styles here
+                placeholderTextColor: 'lightgrey',
               }}
               dropDownItemStyle={styles.dropdownItem} // Custom style for dropdown items
             />
@@ -208,7 +214,7 @@ export default function VisitorRegisterScreen() {
               list={dropdownItems}
               placeholder="Purpose of Visit"
               dropDownItemTextStyle="#fff"
-              dropDownItemSelectedStyle={{backgroundColor:'#fff'}}
+              dropDownItemSelectedStyle={{backgroundColor: '#fff'}}
               visible={showDropDown}
               showDropDown={() => setShowDropDown(true)}
               onDismiss={() => setShowDropDown(false)}
@@ -222,8 +228,8 @@ export default function VisitorRegisterScreen() {
                 outlineColor: showDropDown ? '#3085fe' : '#000',
                 right: <TextInput.Icon icon="menu-down" color={'#000'} />,
                 style: styles.dropdownInput, // Apply styles here
-                textColor:'#000',
-                placeholderTextColor:'lightgrey'
+                textColor: '#000',
+                placeholderTextColor: 'lightgrey',
               }}
               dropDownItemStyle={styles.dropdownItem} // Custom style for dropdown items
             />
@@ -254,7 +260,7 @@ export default function VisitorRegisterScreen() {
           <View style={styles.subbutton}>
             <TouchableOpacity
               onPress={() => {
-                //  _vaildate();
+                // _vaildate();
                 navigation.navigate('AttachFile');
               }}
               style={styles.subbutton}>
@@ -315,11 +321,11 @@ const styles = StyleSheet.create({
     marginVertical: 50,
   },
   dropdownInput: {
-    height:50,
-    borderRadius:10,
+    height: 50,
+    borderRadius: 10,
     width: '100%',
     alignSelf: 'center',
-    color:'lightgrey',
+    color: 'lightgrey',
     backgroundColor: '#fff',
   },
   dropdownItem: {

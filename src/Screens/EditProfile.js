@@ -16,7 +16,7 @@ import DocumentPicker from 'react-native-document-picker';
 import RNFS from 'react-native-fs';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 import countryList from 'react-select-country-list';
-import AppHeader from '../Global/Appheader';
+import AppHeader from '../global/Appheader';
 import DropDown from 'react-native-paper-dropdown';
 
 const Width = Dimensions.get('window').width;

@@ -11,6 +11,7 @@ import {
   Dimensions,
   Modal,
   PermissionsAndroid,
+  Platform,
   Alert,
 } from 'react-native';
 import {NavigationContainer, useNavigation} from '@react-navigation/native';
@@ -38,6 +39,7 @@ import ViewReport from '../Screens/ViewReport';
 import Profile from '../Screens/Profile';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import SnackBar from '../components/SnackBar';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -166,6 +168,7 @@ const DrawerContents = props => {
       ? setModalVisible(true)
       : null;
   };
+
   const onClickSuperDrawer = item => {
     item.id == 3
       ? navigation.navigate('EditProfile')
@@ -405,7 +408,7 @@ const MyTabs = () => {
       initialRouteName="HomeScreen"
       activeColor="#3085fe"
       inactiveColor="grey"
-      barStyle={{backgroundColor: "#fff"}}>
+      barStyle={{backgroundColor: '#fff'}}>
       <Tab.Screen
         name="HomeScreen"
         component={HomeScreen}
@@ -436,7 +439,7 @@ const MyTabs = () => {
           ),
         }}
       /> */}
-       <Tab.Screen
+      <Tab.Screen
         name="Profile"
         component={Profile}
         options={{
@@ -490,6 +493,7 @@ function NavigationComponents() {
           component={VisitorDetailsScreen}
         />
       </Stack.Navigator>
+      <SnackBar/>
     </NavigationContainer>
   );
 }

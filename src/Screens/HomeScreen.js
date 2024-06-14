@@ -41,7 +41,6 @@ const HomeScreen = props => {
   const [selected, setSelected] = useState('');
   const [press, setpress] = useState(false);
 
-
   var retrieveData = async () => {
     try {
       const value = await AsyncStorage.getItem(asyncc);
@@ -174,7 +173,7 @@ const HomeScreen = props => {
   ];
 
   const dayBar = {
-    labels: ['01', '02', '03', '04', '05','06',],
+    labels: ['01', '02', '03', '04', '05', '06'],
     datasets: [
       {
         data: [2000, 2001, 2002, 2003, 2004, 2005],
@@ -278,7 +277,7 @@ const HomeScreen = props => {
           <TouchableOpacity style={{}} onPress={() => navigation.goBack()}>
             <Image
               source={require('../Assets/back.png')}
-              style={{height: 30, width: 30, marginLeft: 12,tintColor:'#fff'}}
+              style={{height: 30, width: 30, marginLeft: 12, tintColor: '#fff'}}
             />
           </TouchableOpacity>
           <Text style={styles.titleText}>
@@ -538,33 +537,41 @@ const HomeScreen = props => {
                           flexDirection: 'row',
                           padding: 10,
                         }}>
-                        <View style={{flex: 0.8,flexDirection:'row', justifyContent: 'center',borderWidth:0}}>
-                          <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
-                          <Text style={styles.textStyle}>
-                            Visitor Name
-                          </Text>
-                          <Text style={styles.textStyle}>
-                            In-Time
-                          </Text>
-                          <Text style={styles.textStyle}>
-                            Person to Meet
-                          </Text>
+                        <View
+                          style={{
+                            flex: 0.8,
+                            flexDirection: 'row',
+                            justifyContent: 'center',
+                            borderWidth: 0,
+                          }}>
+                          <View
+                            style={{
+                              flex: 0.48,
+                              borderWidth: 0,
+                              justifyContent: 'center',
+                            }}>
+                            <Text style={styles.textStyle}>Visitor Name</Text>
+                            <Text style={styles.textStyle}>In-Time</Text>
+                            <Text style={styles.textStyle}>Person to Meet</Text>
                           </View>
-                          <View style={{flex:0.04,}}>
-                            <Text style={{color:'#000',}}>:</Text>
-                            <Text style={{color:'#000'}}>:</Text>
-                            <Text style={{color:'#000'}}>:</Text>
+                          <View style={{flex: 0.04}}>
+                            <Text style={{color: '#000'}}>:</Text>
+                            <Text style={{color: '#000'}}>:</Text>
+                            <Text style={{color: '#000'}}>:</Text>
                           </View>
-                          <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
-                          <Text style={styles.textStyle}>
-                            {item.visitorName}
-                          </Text>
-                          <Text style={styles.textStyle}>
-                          {item.inTime}
-                          </Text>
-                          <Text style={styles.textStyle}>
-                            {item.persontoMeet}
-                          </Text>
+                          <View
+                            style={{
+                              flex: 0.48,
+                              borderWidth: 0,
+                              justifyContent: 'center',
+                            }}>
+                            <Text style={styles.textStyle}>
+                              {item.visitorName}
+                            </Text>
+                            <Text style={styles.textStyle}>{item.inTime}</Text>
+                            <Text style={styles.textStyle}>
+                              {item.persontoMeet}
+                            </Text>
                           </View>
                         </View>
                         <View style={{flex: 0.25, justifyContent: 'center'}}>
@@ -590,7 +597,7 @@ const HomeScreen = props => {
                           <View style={[styles.subbutton, {width: '100%'}]}>
                             <TouchableOpacity
                               onPress={() => {
-                                null
+                                null;
                               }}
                               style={[styles.subbutton, {width: '100%'}]}>
                               <Text style={styles.subtext}>View</Text>
@@ -650,30 +657,43 @@ const HomeScreen = props => {
                         padding: 10,
                         justifyContent: 'space-between',
                       }}>
-                      <View style={{justifyContent: 'center',borderWidth:0,flex:0.8,flexDirection:'row'}}>
-                      <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
-                        <Text style={styles.textStyle}>Name</Text>
-                        <Text style={styles.textStyle}>
-                          Valid Upto
-                        </Text>
-                        <Text style={styles.textStyle}>
-                          Status
-                        </Text>
-                      </View>
-                      <View style={{flex:0.04,borderWidth:0,justifyContent:'center'}}>
-                        <Text style={styles.textStyle}>:</Text>
-                        <Text style={styles.textStyle}>: </Text>
-                        <Text style={styles.textStyle}>:</Text>
-                      </View>
-                      <View style={{flex:0.48,borderWidth:0,justifyContent:'center'}}>
-                        <Text style={styles.textStyle}>{item.Name}</Text>
-                        <Text style={styles.textStyle}>
-                         {item.validity}
-                        </Text>
-                        <Text style={styles.textStyle}>
-                        {item.status}
-                        </Text>
-                      </View>
+                      <View
+                        style={{
+                          justifyContent: 'center',
+                          borderWidth: 0,
+                          flex: 0.8,
+                          flexDirection: 'row',
+                        }}>
+                        <View
+                          style={{
+                            flex: 0.48,
+                            borderWidth: 0,
+                            justifyContent: 'center',
+                          }}>
+                          <Text style={styles.textStyle}>Name</Text>
+                          <Text style={styles.textStyle}>Valid Upto</Text>
+                          <Text style={styles.textStyle}>Status</Text>
+                        </View>
+                        <View
+                          style={{
+                            flex: 0.04,
+                            borderWidth: 0,
+                            justifyContent: 'center',
+                          }}>
+                          <Text style={styles.textStyle}>:</Text>
+                          <Text style={styles.textStyle}>: </Text>
+                          <Text style={styles.textStyle}>:</Text>
+                        </View>
+                        <View
+                          style={{
+                            flex: 0.48,
+                            borderWidth: 0,
+                            justifyContent: 'center',
+                          }}>
+                          <Text style={styles.textStyle}>{item.Name}</Text>
+                          <Text style={styles.textStyle}>{item.validity}</Text>
+                          <Text style={styles.textStyle}>{item.status}</Text>
+                        </View>
                       </View>
 
                       <View
@@ -731,7 +751,7 @@ const HomeScreen = props => {
                     loop
                     style={styles.lottiview}
                   />
-                  <Text style={styles.time_date}>26{"\u00b0"}C</Text>
+                  <Text style={styles.time_date}>26{'\u00b0'}C</Text>
                 </View>
               </View>
             </View>
@@ -748,21 +768,44 @@ const HomeScreen = props => {
                       />
                     </View>
                     <View style={styles.nameview}>
-                      <View style={{flexDirection:'row',borderWidth:0,width:265,justifyContent:'space-between'}}>
-                      <Text style={styles.namestyle}>
-                        {item.Name}
-                        <Text style={styles.nametext}>{item.NameText}</Text>
-                      </Text>
-                      <TouchableOpacity onPress={() => null} style={{height:20,width:20,borderWidth:0,justifyContent:'center',borderRadius:20,backgroundColor:'#3085fe'}}>
-                      <Text style={{fontSize:12,fontWeight:'bold',color:'#fff',textAlign:'center',}}>!</Text>
-                      </TouchableOpacity>
+                      <View
+                        style={{
+                          flexDirection: 'row',
+                          borderWidth: 0,
+                          width: 265,
+                          justifyContent: 'space-between',
+                        }}>
+                        <Text style={styles.namestyle}>
+                          {item.Name}
+                          <Text style={styles.nametext}>{item.NameText}</Text>
+                        </Text>
+                        <TouchableOpacity
+                          onPress={() => null}
+                          style={{
+                            height: 20,
+                            width: 20,
+                            borderWidth: 0,
+                            justifyContent: 'center',
+                            borderRadius: 20,
+                            backgroundColor: '#3085fe',
+                          }}>
+                          <Text
+                            style={{
+                              fontSize: 12,
+                              fontWeight: 'bold',
+                              color: '#fff',
+                              textAlign: 'center',
+                            }}>
+                            !
+                          </Text>
+                        </TouchableOpacity>
                       </View>
-                     <View
+                      <View
                         style={{
                           flexDirection: 'row',
                           width: 250,
                           // alignSelf:'center',
-                          justifyContent:'space-between',
+                          justifyContent: 'space-between',
                           margin: 5,
                           // borderWidth:1
                         }}>
@@ -772,12 +815,27 @@ const HomeScreen = props => {
                             styles.subbutton,
                             {backgroundColor: '#00CC00'},
                           ]}>
-                          <Text style={[styles.subtext,{fontSize:14,fontWeight:'500'}]}>Accept</Text>
+                          <Text
+                            style={[
+                              styles.subtext,
+                              {fontSize: 14, fontWeight: '500'},
+                            ]}>
+                            Accept
+                          </Text>
                         </TouchableOpacity>
                         <TouchableOpacity
                           onPress={() => null}
-                          style={[styles.subbutton, {backgroundColor: '#CC0000'}]}>
-                          <Text style={[styles.subtext,{fontSize:14,fontWeight:'500'}]}>Reject</Text>
+                          style={[
+                            styles.subbutton,
+                            {backgroundColor: '#CC0000'},
+                          ]}>
+                          <Text
+                            style={[
+                              styles.subtext,
+                              {fontSize: 14, fontWeight: '500'},
+                            ]}>
+                            Reject
+                          </Text>
                         </TouchableOpacity>
                       </View>
                     </View>
@@ -918,8 +976,8 @@ const styles = StyleSheet.create({
     width: '60%',
   },
   flatview: {
-    width:'98%',
-    alignSelf:'center',
+    width: '98%',
+    alignSelf: 'center',
     marginTop: 7,
     flexDirection: 'row',
     backgroundColor: '#fff',

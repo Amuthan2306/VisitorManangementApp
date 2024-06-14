@@ -16,7 +16,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {useNavigation} from '@react-navigation/native';
 import {Spinner} from '../components/Spinner';
-import AppHeader from '../Global/Appheader';
+import AppHeader from '../global/Appheader';
 export default function VisitorDetailsScreen() {
   const navigation = useNavigation();
   const [firstname, setfirstname] = useState('');
@@ -69,7 +69,7 @@ export default function VisitorDetailsScreen() {
           <Text style={styles.text}>Name</Text>
           <TextInput
             onChangeText={text => setfirstname(text)}
-            value={names}
+            value={names?.firstname}
             style={styles.input}
             // placeholder={'Name'}
             editable={false}
@@ -77,7 +77,7 @@ export default function VisitorDetailsScreen() {
           <Text style={styles.text}>Email</Text>
           <TextInput
             // placeholder={"Email"}
-            value={email}
+            value={names?.email}
             style={styles.input}
             onChangeText={text => setEmail(text)}
             editable={false}
@@ -95,7 +95,7 @@ export default function VisitorDetailsScreen() {
           <TextInput
             style={styles.input}
             onChangeText={text => setcivilid(text)}
-            value={names?.civilid}
+            value={names?.selectedValue1}
             // placeholder={'ID Proof'}
             editable={false}
           />
@@ -103,7 +103,7 @@ export default function VisitorDetailsScreen() {
           <TextInput
             style={styles.input}
             onChangeText={text => setcivilid1(text)}
-            value={names?.civilid1}
+            value={names?.civilid}
             // placeholder={'ID ProofNumber'}
             editable={false}
           />
@@ -111,7 +111,7 @@ export default function VisitorDetailsScreen() {
           <TextInput
             style={styles.input}
             onChangeText={text => setvisit(text)}
-            value={names?.visit}
+            value={names?.selectedValue}
             // placeholder={'Purpose of Visit'}
             editable={false}
           />
@@ -206,6 +206,7 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     borderRadius: 10,
     borderWidth: 0.5,
+    color:'#000'
     // borderColor: '#3085fe',
     // marginTop:10
   },

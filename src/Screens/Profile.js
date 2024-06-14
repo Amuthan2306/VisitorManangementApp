@@ -174,7 +174,6 @@ const Profile = props => {
       : null;
   };
 
-  
   const openFilePicker = async () => {
     console.log('platform===>', Platform.OS);
     if (Platform.OS === 'android') {
@@ -191,7 +190,7 @@ const Profile = props => {
       if (Platform.OS !== 'android') {
         decodedFileName = decodeURIComponent(decodedFileName);
       }
-  
+
       if (
         resp[0]?.type === 'image/jpeg' ||
         resp[0]?.type === 'image/jpg' ||
@@ -199,9 +198,9 @@ const Profile = props => {
       ) {
         RNFS.readFile(decodedFileName, 'base64')
           .then(res => {
-            console.log('res', res);
+            // console.log('res', res);
             console.log('typePDF', resp[0].uri);
-  
+
             if (resp[0].type === 'image/jpeg' || resp[0].type === 'image/png') {
               console.log('frontpage==>####', resp[0]?.uri?.length);
               SetImages(resp[0].uri);
@@ -218,7 +217,7 @@ const Profile = props => {
       console.log('Error:', err);
     }
   };
-  
+
   const requestMediaPermission = async () => {
     try {
       const granted = await PermissionsAndroid.request(

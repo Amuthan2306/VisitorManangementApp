@@ -12,7 +12,7 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import {useNavigation} from '@react-navigation/native';
 import {icons} from '../components/Assets/index';
-import AppHeader from '../Global/Appheader';
+import AppHeader from '../global/Appheader';
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 

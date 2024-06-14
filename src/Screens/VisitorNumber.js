@@ -12,13 +12,15 @@ import {
 import React, {useState, useEffect} from 'react';
 import {useNavigation} from '@react-navigation/native';
 import LottieView from 'lottie-react-native';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import {icons} from '../components/Assets';
 import {Spinner} from '../components/Spinner';
-import AppHeader from '../Global/Appheader';
+import AppHeader from '../global/Appheader';
 const Width = Dimensions.get('window').width;
 const Height = Dimensions.get('window').height;
 export default function VisitorNumber() {
   const [modal, setModal] = useState(false);
+  const [names, setName] = useState('');
   const navigation = useNavigation();
   const [spin, setPin] = useState(true);
 
@@ -28,6 +30,22 @@ export default function VisitorNumber() {
   //   },2000)
 
   // }, []);
+
+  useEffect(() => {
+    display();
+  }, []);
+
+  const display = async () => {
+    try {
+      let user = await AsyncStorage.getItem('user');
+      let data = JSON.parse(user);
+      console.log('user==>', data);
+      setName(data);
+    } catch (error) {
+      Alert.alert(error);
+    }
+  };
+
   return (
     <SafeAreaView style={styles.container}>
       {/* {spin ? <Spinner /> : null} */}
@@ -106,7 +124,7 @@ export default function VisitorNumber() {
             }}>
             <View style={{width: '47%', alignSelf: 'center', borderWidth: 0}}>
               <Text style={styles.nametext}>Name</Text>
-              <Text style={styles.nametext}>Civil ID</Text>
+              <Text style={styles.nametext}>ID Proof Number</Text>
               <Text style={styles.nametext}>Purpose Of Visit</Text>
               <Text style={styles.nametext}>Person To Meet</Text>
               <Text style={styles.nametext}>In Time</Text>

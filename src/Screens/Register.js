@@ -12,7 +12,7 @@ import {TextInput, Checkbox} from 'react-native-paper';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {useNavigation} from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import AppHeader from '../Global/Appheader';
+import AppHeader from '../global/Appheader';
 export default function Register() {
   const [firstname, setFirstname] = React.useState('');
   const [lastname, setLastname] = React.useState('');
